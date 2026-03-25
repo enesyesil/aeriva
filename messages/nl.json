@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Over ons",
+    "fragrances": "Geuren",
+    "whyUs": "Verkoop",
+    "locations": "Locaties",
+    "contact": "Contact"
+  },
+  "hero": {
+    "overline": "Maison de Parfum · Belgique",
+    "headlineTop": "De kunst van bijna",
+    "headlineBottom": "herinnerd te worden",
+    "subheadline": "Een geur draag je niet. Je neemt hem mee — zoals licht zijn warmte bewaart, lang nadat de zon is gedraaid.",
+    "cta": "Ontdek de collectie"
+  },
+  "about": {
+    "title": "Onze filosofie",
+    "paragraph1": "Aériva is ontstaan uit de overtuiging dat parfum geen versiering is — het is identiteit. Elke compositie is een stil gesprek tussen herinnering en intentie, gecreëerd in het hart van Europa.",
+    "paragraph2": "Wij werken met ingetogenheid, kiezen voor minder noten om meer te zeggen. Onze geuren zijn niet luid. Ze zijn aanwezig — zwevend aan de rand van de waarneming, wachtend om opgemerkt te worden.",
+    "tagline": "Met intentie gemaakt. Met betekenis gedragen."
+  },
+  "fragrances": {
+    "title": "De Collectie",
+    "subtitle": "Elke geur vertelt een verhaal dat woorden alleen niet kunnen uitdrukken.",
+    "items": {
+      "lumiere": {
+        "name": "Lumière Dorée",
+        "description": "Een zonnig gefluister van bergamot, witte thee en sandelhout. Ochtendlicht gevangen in glas.",
+        "notes": "Bergamot · Witte thee · Sandelhout"
+      },
+      "velours": {
+        "name": "Velours de Nuit",
+        "description": "Diepe, fluwelen duisternis. Oud, zwarte amber en een zweem van gedroogde roos. Voor wie in stilte spreekt.",
+        "notes": "Oud · Zwarte amber · Gedroogde roos"
+      },
+      "brume": {
+        "name": "Brume Éternelle",
+        "description": "De rust na de regen. Iris, nat gesteente en zachte musk. Een geur die zich herinnert.",
+        "notes": "Iris · Nat gesteente · Zachte musk"
+      }
+    }
+  },
+  "sales": {
+    "title": "Verkoopopties",
+    "subtitle": "Of u nu een particulier of een bedrijf bent, wij hebben de juiste optie voor u.",
+    "options": {
+      "retail": {
+        "badge": "Particulier",
+        "title": "Detailhandel",
+        "description": "Koop rechtstreeks uit onze collectie. Elke geur wordt geleverd in onze kenmerkende verpakking, klaar om te ervaren.",
+        "highlights": ["Volledige formaten & ontdekkingssets", "Gratis geschenkverpakking", "Gratis verzending vanaf €75"],
+        "cta": "Nu Kopen"
+      },
+      "wholesale": {
+        "badge": "Zakelijk",
+        "title": "Groothandel",
+        "description": "Word partner van Aériva voor uw boetiek, hotel of winkelruimte. Competitieve prijzen met toegewijd accountbeheer.",
+        "highlights": ["Minimaal 20 eenheden per bestelling", "Volumeprijzen in staffels", "Toegewijde accountmanager"],
+        "cta": "Prijzen Aanvragen"
+      },
+      "bespoke": {
+        "badge": "Zakelijk",
+        "title": "Enterprise",
+        "description": "Aangepaste geurprogramma's voor bedrijven, horecamerken en grootschalige retailpartners. Oplossingen op maat en op schaal.",
+        "highlights": ["Toegewijd ontwikkelingsteam", "Aangepaste formulering & verpakking", "Wereldwijde distributie & logistiek"],
+        "cta": "Verkoop Contacteren"
+      }
+    }
+  },
+  "contact": {
+    "title": "Neem contact op",
+    "subtitle": "Wij horen graag van u.",
+    "name": "Naam",
+    "email": "E-mail",
+    "salesOption": "Type aanvraag",
+    "salesOptions": {
+      "general": "Algemene aanvraag",
+      "retail": "Detailhandel aankoop",
+      "wholesale": "Groothandel partnerschap",
+      "enterprise": "Enterprise programma"
+    },
+    "message": "Bericht",
+    "send": "Versturen",
+    "success": "Dank u. Wij nemen spoedig contact met u op.",
+    "error": "Er ging iets mis. Probeer het opnieuw."
+  },
+  "footer": {
+    "tagline": "Een stille expressie van identiteit.",
+    "rights": "Alle rechten voorbehouden.",
+    "description": "Geboren in België, creëert Aériva geuren met poëtische ingetogenheid en doordachte elegantie. Elke compositie is een stil gesprek tussen herinnering en intentie.",
+    "explore": "Ontdekken",
+    "company": "Bedrijf",
+    "connect": "Volg ons"
+  },
+  "locations": {
+    "title": "Onze Locaties",
+    "subtitle": "Bezoek ons op een van onze verkooppunten in Europa.",
+    "stores": {
+      "brussels": {
+        "name": "Aériva Brussel — Flagship",
+        "address": "Wolvengracht 34, 1000 Brussel",
+        "hours": "Ma–Za: 10:00–19:00",
+        "type": "Flagship Winkel"
+      },
+      "antwerp": {
+        "name": "Aériva Antwerpen",
+        "address": "Nationalestraat 22, 2000 Antwerpen",
+        "hours": "Ma–Za: 10:00–18:00",
+        "type": "Boetiek"
+      },
+      "ghent": {
+        "name": "Aériva Gent",
+        "address": "Veldstraat 55, 9000 Gent",
+        "hours": "Di–Za: 11:00–18:00",
+        "type": "Concept Store"
+      },
+      "amsterdam": {
+        "name": "Aériva Amsterdam",
+        "address": "Herenstraat 28, 1015 CA Amsterdam",
+        "hours": "Ma–Za: 10:00–18:30",
+        "type": "Partner Boetiek"
+      }
+    }
+  }
+}

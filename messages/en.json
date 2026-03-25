@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "fragrances": "Fragrances",
+    "whyUs": "Sales",
+    "locations": "Locations",
+    "contact": "Contact"
+  },
+  "hero": {
+    "overline": "Maison de Parfum · Belgique",
+    "headlineTop": "The Art of Being",
+    "headlineBottom": "Almost Remembered",
+    "subheadline": "A fragrance is not worn. It is carried — the way light carries warmth long after the sun has turned.",
+    "cta": "Explore the Collection"
+  },
+  "about": {
+    "title": "Our Philosophy",
+    "paragraph1": "Aériva was born from the belief that fragrance is not decoration — it is identity. Each composition is a quiet conversation between memory and intention, crafted in the heart of Europe.",
+    "paragraph2": "We work with restraint, choosing fewer notes to say more. Our fragrances are not loud. They are present — lingering at the edges of perception, waiting to be noticed.",
+    "tagline": "Crafted with intention. Worn with meaning."
+  },
+  "fragrances": {
+    "title": "The Collection",
+    "subtitle": "Each fragrance tells a story that words alone cannot.",
+    "items": {
+      "lumiere": {
+        "name": "Lumière Dorée",
+        "description": "A sunlit whisper of bergamot, white tea, and sandalwood. Morning light captured in glass.",
+        "notes": "Bergamot · White Tea · Sandalwood"
+      },
+      "velours": {
+        "name": "Velours de Nuit",
+        "description": "Deep, velvety darkness. Oud, black amber, and a trace of dried rose. For those who speak in silence.",
+        "notes": "Oud · Black Amber · Dried Rose"
+      },
+      "brume": {
+        "name": "Brume Éternelle",
+        "description": "The quiet after rain. Iris, wet stone, and soft musk. A fragrance that remembers.",
+        "notes": "Iris · Wet Stone · Soft Musk"
+      }
+    }
+  },
+  "sales": {
+    "title": "Sales Options",
+    "subtitle": "Whether you are an individual or a business, we have the right option for you.",
+    "options": {
+      "retail": {
+        "badge": "Individual",
+        "title": "Retail",
+        "description": "Purchase directly from our collection. Each fragrance is delivered in our signature packaging, ready to be experienced.",
+        "highlights": ["Full-size & discovery sets", "Complimentary gift wrapping", "Free shipping over €75"],
+        "cta": "Shop Now"
+      },
+      "wholesale": {
+        "badge": "Business",
+        "title": "Wholesale",
+        "description": "Partner with Aériva for your boutique, hotel, or retail space. Competitive pricing with dedicated account support.",
+        "highlights": ["Minimum 20 units per order", "Tiered volume pricing", "Dedicated account manager"],
+        "cta": "Request Pricing"
+      },
+      "bespoke": {
+        "badge": "Enterprise",
+        "title": "Enterprise",
+        "description": "Custom fragrance programs for corporations, hospitality brands, and large-scale retail partners. Tailored solutions at scale.",
+        "highlights": ["Dedicated fragrance development team", "Custom formulation & branded packaging", "Global distribution & logistics support"],
+        "cta": "Contact Sales"
+      }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "We would love to hear from you.",
+    "name": "Name",
+    "email": "Email",
+    "salesOption": "Inquiry Type",
+    "salesOptions": {
+      "general": "General Inquiry",
+      "retail": "Retail Purchase",
+      "wholesale": "Wholesale Partnership",
+      "enterprise": "Enterprise Program"
+    },
+    "message": "Message",
+    "send": "Submit",
+    "success": "Thank you. We will be in touch soon.",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "tagline": "A quiet expression of identity.",
+    "rights": "All rights reserved.",
+    "description": "Born in Belgium, Aériva crafts fragrances with poetic restraint and intentional elegance. Each composition is a quiet conversation between memory and intention.",
+    "explore": "Explore",
+    "company": "Company",
+    "connect": "Connect"
+  },
+  "locations": {
+    "title": "Our Locations",
+    "subtitle": "Visit us at one of our sales points across Europe.",
+    "stores": {
+      "brussels": {
+        "name": "Aériva Brussels — Flagship",
+        "address": "Rue du Fossé aux Loups 34, 1000 Brussels",
+        "hours": "Mon–Sat: 10:00–19:00",
+        "type": "Flagship Store"
+      },
+      "antwerp": {
+        "name": "Aériva Antwerp",
+        "address": "Nationalestraat 22, 2000 Antwerp",
+        "hours": "Mon–Sat: 10:00–18:00",
+        "type": "Boutique"
+      },
+      "ghent": {
+        "name": "Aériva Ghent",
+        "address": "Veldstraat 55, 9000 Ghent",
+        "hours": "Tue–Sat: 11:00–18:00",
+        "type": "Concept Store"
+      },
+      "amsterdam": {
+        "name": "Aériva Amsterdam",
+        "address": "Herenstraat 28, 1015 CA Amsterdam",
+        "hours": "Mon–Sat: 10:00–18:30",
+        "type": "Partner Boutique"
+      }
+    }
+  }
+}

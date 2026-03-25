@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "fragrances": "Parfums",
+    "whyUs": "Ventes",
+    "locations": "Points de Vente",
+    "contact": "Contact"
+  },
+  "hero": {
+    "overline": "Maison de Parfum · Belgique",
+    "headlineTop": "L'art d'être",
+    "headlineBottom": "presque un souvenir",
+    "subheadline": "Un parfum ne se porte pas. Il s'emporte — comme la lumière garde sa chaleur bien après que le soleil a tourné.",
+    "cta": "Explorer la collection"
+  },
+  "about": {
+    "title": "Notre philosophie",
+    "paragraph1": "Aériva est née de la conviction que le parfum n'est pas une parure — c'est une identité. Chaque composition est une conversation discrète entre le souvenir et l'intention, créée au cœur de l'Europe.",
+    "paragraph2": "Nous travaillons avec retenue, choisissant moins de notes pour en dire davantage. Nos parfums ne sont pas imposants. Ils sont présents — persistant aux confins de la perception, attendant d'être remarqués.",
+    "tagline": "Conçu avec intention. Porté avec sens."
+  },
+  "fragrances": {
+    "title": "La Collection",
+    "subtitle": "Chaque parfum raconte une histoire que les mots seuls ne sauraient exprimer.",
+    "items": {
+      "lumiere": {
+        "name": "Lumière Dorée",
+        "description": "Un murmure ensoleillé de bergamote, de thé blanc et de santal. La lumière du matin capturée dans le verre.",
+        "notes": "Bergamote · Thé blanc · Santal"
+      },
+      "velours": {
+        "name": "Velours de Nuit",
+        "description": "Une obscurité profonde et veloutée. Oud, ambre noir et une trace de rose séchée. Pour ceux qui parlent en silence.",
+        "notes": "Oud · Ambre noir · Rose séchée"
+      },
+      "brume": {
+        "name": "Brume Éternelle",
+        "description": "Le calme après la pluie. Iris, pierre mouillée et musc doux. Un parfum qui se souvient.",
+        "notes": "Iris · Pierre mouillée · Musc doux"
+      }
+    }
+  },
+  "sales": {
+    "title": "Options de Vente",
+    "subtitle": "Que vous soyez un particulier ou un professionnel, nous avons l'option adaptée.",
+    "options": {
+      "retail": {
+        "badge": "Particulier",
+        "title": "Vente au Détail",
+        "description": "Achetez directement dans notre collection. Chaque parfum est livré dans notre emballage signature, prêt à être découvert.",
+        "highlights": ["Formats complets & coffrets découverte", "Emballage cadeau offert", "Livraison gratuite dès 75 €"],
+        "cta": "Acheter"
+      },
+      "wholesale": {
+        "badge": "Professionnel",
+        "title": "Vente en Gros",
+        "description": "Devenez partenaire Aériva pour votre boutique, hôtel ou espace de vente. Tarifs compétitifs avec un accompagnement dédié.",
+        "highlights": ["Minimum 20 unités par commande", "Tarifs dégressifs par volume", "Gestionnaire de compte dédié"],
+        "cta": "Demander un Devis"
+      },
+      "bespoke": {
+        "badge": "Entreprise",
+        "title": "Entreprise",
+        "description": "Programmes de fragrances sur mesure pour entreprises, marques hôtelières et partenaires de vente à grande échelle.",
+        "highlights": ["Équipe dédiée au développement", "Formulation & packaging personnalisés", "Support logistique et distribution mondiale"],
+        "cta": "Contacter les Ventes"
+      }
+    }
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "subtitle": "Nous serions ravis de vous entendre.",
+    "name": "Nom",
+    "email": "E-mail",
+    "salesOption": "Type de demande",
+    "salesOptions": {
+      "general": "Demande générale",
+      "retail": "Achat au détail",
+      "wholesale": "Partenariat grossiste",
+      "enterprise": "Programme entreprise"
+    },
+    "message": "Message",
+    "send": "Soumettre",
+    "success": "Merci. Nous vous répondrons bientôt.",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "footer": {
+    "tagline": "Une expression discrète de l'identité.",
+    "rights": "Tous droits réservés.",
+    "description": "Née en Belgique, Aériva crée des parfums avec retenue poétique et élégance intentionnelle. Chaque composition est une conversation discrète entre mémoire et intention.",
+    "explore": "Explorer",
+    "company": "Société",
+    "connect": "Suivez-nous"
+  },
+  "locations": {
+    "title": "Nos Points de Vente",
+    "subtitle": "Rendez-nous visite dans l'un de nos points de vente en Europe.",
+    "stores": {
+      "brussels": {
+        "name": "Aériva Bruxelles — Flagship",
+        "address": "Rue du Fossé aux Loups 34, 1000 Bruxelles",
+        "hours": "Lun–Sam : 10h00–19h00",
+        "type": "Magasin Phare"
+      },
+      "antwerp": {
+        "name": "Aériva Anvers",
+        "address": "Nationalestraat 22, 2000 Anvers",
+        "hours": "Lun–Sam : 10h00–18h00",
+        "type": "Boutique"
+      },
+      "ghent": {
+        "name": "Aériva Gand",
+        "address": "Veldstraat 55, 9000 Gand",
+        "hours": "Mar–Sam : 11h00–18h00",
+        "type": "Concept Store"
+      },
+      "amsterdam": {
+        "name": "Aériva Amsterdam",
+        "address": "Herenstraat 28, 1015 CA Amsterdam",
+        "hours": "Lun–Sam : 10h00–18h30",
+        "type": "Boutique Partenaire"
+      }
+    }
+  }
+}
