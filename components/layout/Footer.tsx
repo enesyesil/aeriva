@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 
@@ -28,9 +29,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
           {/* Brand column */}
           <div className="md:col-span-5">
-            <span className="font-serif text-2xl text-white tracking-wide">
-              Aériva
-            </span>
+            <Image
+              src="/images/brand/dauvena-logo.png"
+              alt="Dauvéna"
+              width={359}
+              height={70}
+              className="h-auto w-[190px] brightness-0 invert opacity-90"
+            />
             <p className="text-sm leading-relaxed mt-4 max-w-sm text-white/45">
               {t("description")}
             </p>
@@ -147,7 +152,7 @@ export default function Footer() {
         {/* Divider + copyright */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/30">
-            &copy; {year} Aériva. {t("rights")}
+            &copy; {year} Dauvéna. {t("rights")}
           </p>
           <p className="text-xs text-white/20">
             Maison de Parfum · Belgique

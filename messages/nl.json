@@ -16,7 +16,7 @@
   },
   "about": {
     "title": "Onze filosofie",
-    "paragraph1": "Aériva is ontstaan uit de overtuiging dat parfum geen versiering is — het is identiteit. Elke compositie is een stil gesprek tussen herinnering en intentie, gecreëerd in het hart van Europa.",
+    "paragraph1": "Dauvéna is ontstaan uit de overtuiging dat parfum geen versiering is — het is identiteit. Elke compositie is een stil gesprek tussen herinnering en intentie, gecreëerd in het hart van Europa.",
     "paragraph2": "Wij werken met ingetogenheid, kiezen voor minder noten om meer te zeggen. Onze geuren zijn niet luid. Ze zijn aanwezig — zwevend aan de rand van de waarneming, wachtend om opgemerkt te worden.",
     "tagline": "Met intentie gemaakt. Met betekenis gedragen."
   },
@@ -55,7 +55,7 @@
       "wholesale": {
         "badge": "Zakelijk",
         "title": "Groothandel",
-        "description": "Word partner van Aériva voor uw boetiek, hotel of winkelruimte. Competitieve prijzen met toegewijd accountbeheer.",
+        "description": "Word partner van Dauvéna voor uw boetiek, hotel of winkelruimte. Competitieve prijzen met toegewijd accountbeheer.",
         "highlights": ["Minimaal 20 eenheden per bestelling", "Volumeprijzen in staffels", "Toegewijde accountmanager"],
         "cta": "Prijzen Aanvragen"
       },
@@ -88,7 +88,7 @@
   "footer": {
     "tagline": "Een stille expressie van identiteit.",
     "rights": "Alle rechten voorbehouden.",
-    "description": "Geboren in België, creëert Aériva geuren met poëtische ingetogenheid en doordachte elegantie. Elke compositie is een stil gesprek tussen herinnering en intentie.",
+    "description": "Geboren in België, creëert Dauvéna geuren met poëtische ingetogenheid en doordachte elegantie. Elke compositie is een stil gesprek tussen herinnering en intentie.",
     "explore": "Ontdekken",
     "company": "Bedrijf",
     "connect": "Volg ons"
@@ -98,25 +98,25 @@
     "subtitle": "Bezoek ons op een van onze verkooppunten in Europa.",
     "stores": {
       "brussels": {
-        "name": "Aériva Brussel — Flagship",
+        "name": "Dauvéna Brussel — Flagship",
         "address": "Wolvengracht 34, 1000 Brussel",
         "hours": "Ma–Za: 10:00–19:00",
         "type": "Flagship Winkel"
       },
       "antwerp": {
-        "name": "Aériva Antwerpen",
+        "name": "Dauvéna Antwerpen",
         "address": "Nationalestraat 22, 2000 Antwerpen",
         "hours": "Ma–Za: 10:00–18:00",
         "type": "Boetiek"
       },
       "ghent": {
-        "name": "Aériva Gent",
+        "name": "Dauvéna Gent",
         "address": "Veldstraat 55, 9000 Gent",
         "hours": "Di–Za: 11:00–18:00",
         "type": "Concept Store"
       },
       "amsterdam": {
-        "name": "Aériva Amsterdam",
+        "name": "Dauvéna Amsterdam",
         "address": "Herenstraat 28, 1015 CA Amsterdam",
         "hours": "Ma–Za: 10:00–18:30",
         "type": "Partner Boetiek"

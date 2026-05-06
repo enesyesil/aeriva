@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Playfair_Display, Barlow } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -10,19 +9,19 @@ import "@/app/globals.css";
 
 const metaByLocale: Record<string, { title: string; description: string }> = {
   en: {
-    title: "Aériva — European Luxury Fragrances",
+    title: "Dauvéna — European Luxury Fragrances",
     description:
-      "Discover Aériva, a premium European perfume house crafting fragrances with poetic restraint and intentional elegance. Born in Belgium.",
+      "Discover Dauvéna, a premium European perfume house crafting fragrances with poetic restraint and intentional elegance. Born in Belgium.",
   },
   fr: {
-    title: "Aériva — Parfums de luxe européens",
+    title: "Dauvéna — Parfums de luxe européens",
     description:
-      "Découvrez Aériva, une maison de parfum européenne d'exception. Des créations empreintes de retenue poétique et d'élégance intentionnelle. Née en Belgique.",
+      "Découvrez Dauvéna, une maison de parfum européenne d'exception. Des créations empreintes de retenue poétique et d'élégance intentionnelle. Née en Belgique.",
   },
   nl: {
-    title: "Aériva — Europese luxe geuren",
+    title: "Dauvéna — Europese luxe geuren",
     description:
-      "Ontdek Aériva, een premium Europees parfumhuis dat geuren creëert met poëtische ingetogenheid en doordachte elegantie. Geboren in België.",
+      "Ontdek Dauvéna, een premium Europees parfumhuis dat geuren creëert met poëtische ingetogenheid en doordachte elegantie. Geboren in België.",
   },
 };
 
@@ -40,23 +39,10 @@ export async function generateMetadata({
       title: meta.title,
       description: meta.description,
       type: "website",
-      siteName: "Aériva",
+      siteName: "Dauvéna",
     },
   };
 }
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
-const barlow = Barlow({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-sans",
-  display: "swap",
-});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -78,7 +64,19 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${playfair.variable} ${barlow.variable}`}>
+    <html lang={locale}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Playfair+Display&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="font-sans text-navy bg-ivory-light antialiased">
         <NextIntlClientProvider messages={messages}>
           <Navbar />

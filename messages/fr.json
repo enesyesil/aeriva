@@ -16,7 +16,7 @@
   },
   "about": {
     "title": "Notre philosophie",
-    "paragraph1": "Aériva est née de la conviction que le parfum n'est pas une parure — c'est une identité. Chaque composition est une conversation discrète entre le souvenir et l'intention, créée au cœur de l'Europe.",
+    "paragraph1": "Dauvéna est née de la conviction que le parfum n'est pas une parure — c'est une identité. Chaque composition est une conversation discrète entre le souvenir et l'intention, créée au cœur de l'Europe.",
     "paragraph2": "Nous travaillons avec retenue, choisissant moins de notes pour en dire davantage. Nos parfums ne sont pas imposants. Ils sont présents — persistant aux confins de la perception, attendant d'être remarqués.",
     "tagline": "Conçu avec intention. Porté avec sens."
   },
@@ -55,7 +55,7 @@
       "wholesale": {
         "badge": "Professionnel",
         "title": "Vente en Gros",
-        "description": "Devenez partenaire Aériva pour votre boutique, hôtel ou espace de vente. Tarifs compétitifs avec un accompagnement dédié.",
+        "description": "Devenez partenaire Dauvéna pour votre boutique, hôtel ou espace de vente. Tarifs compétitifs avec un accompagnement dédié.",
         "highlights": ["Minimum 20 unités par commande", "Tarifs dégressifs par volume", "Gestionnaire de compte dédié"],
         "cta": "Demander un Devis"
       },
@@ -88,7 +88,7 @@
   "footer": {
     "tagline": "Une expression discrète de l'identité.",
     "rights": "Tous droits réservés.",
-    "description": "Née en Belgique, Aériva crée des parfums avec retenue poétique et élégance intentionnelle. Chaque composition est une conversation discrète entre mémoire et intention.",
+    "description": "Née en Belgique, Dauvéna crée des parfums avec retenue poétique et élégance intentionnelle. Chaque composition est une conversation discrète entre mémoire et intention.",
     "explore": "Explorer",
     "company": "Société",
     "connect": "Suivez-nous"
@@ -98,25 +98,25 @@
     "subtitle": "Rendez-nous visite dans l'un de nos points de vente en Europe.",
     "stores": {
       "brussels": {
-        "name": "Aériva Bruxelles — Flagship",
+        "name": "Dauvéna Bruxelles — Flagship",
         "address": "Rue du Fossé aux Loups 34, 1000 Bruxelles",
         "hours": "Lun–Sam : 10h00–19h00",
         "type": "Magasin Phare"
       },
       "antwerp": {
-        "name": "Aériva Anvers",
+        "name": "Dauvéna Anvers",
         "address": "Nationalestraat 22, 2000 Anvers",
         "hours": "Lun–Sam : 10h00–18h00",
         "type": "Boutique"
       },
       "ghent": {
-        "name": "Aériva Gand",
+        "name": "Dauvéna Gand",
         "address": "Veldstraat 55, 9000 Gand",
         "hours": "Mar–Sam : 11h00–18h00",
         "type": "Concept Store"
       },
       "amsterdam": {
-        "name": "Aériva Amsterdam",
+        "name": "Dauvéna Amsterdam",
         "address": "Herenstraat 28, 1015 CA Amsterdam",
         "hours": "Lun–Sam : 10h00–18h30",
         "type": "Boutique Partenaire"

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const navLinks = [
@@ -66,25 +67,14 @@ export default function Navbar() {
           }}
           className="group flex items-center gap-3"
         >
-          <span
-            className={`font-serif text-[22px] tracking-[0.04em] transition-colors duration-700 ${
-              scrolled ? "text-white" : "text-white"
-            }`}
-          >
-            Aériva
-          </span>
-          <span
-            className={`hidden sm:block w-8 h-[1px] transition-all duration-700 group-hover:w-12 ${
-              scrolled ? "bg-white/25" : "bg-white/25"
-            }`}
+          <Image
+            src="/images/brand/dauvena-logo.png"
+            alt="Dauvéna"
+            width={359}
+            height={70}
+            className="h-auto w-[154px] sm:w-[176px] brightness-0 invert opacity-[0.92]"
+            priority
           />
-          <span
-            className={`hidden sm:block text-[9px] font-sans font-medium tracking-[0.35em] uppercase transition-colors duration-700 ${
-              scrolled ? "text-white/45" : "text-white/45"
-            }`}
-          >
-            Belgique
-          </span>
         </a>
 
         {/* Desktop nav links — center */}
