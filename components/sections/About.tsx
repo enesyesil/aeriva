@@ -8,36 +8,29 @@ export default function About() {
   const t = useTranslations("about");
 
   return (
-    <section id="about" className="py-24 md:py-32 px-6 md:px-8">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        {/* Image */}
+    <section id="about" className="section-shell bg-cream">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-24">
         <RevealOnScroll>
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden relative">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-peach">
             <Image
-              src="/images/philosophy.png"
-              alt="Our Philosophy — artisanal perfumery atelier"
+              src="/images/products/mavigol/mango-lifestyle.jpeg"
+              alt={t("imageAlt")}
               fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]"
+              sizes="(max-width: 1024px) 100vw, 44vw"
             />
           </div>
         </RevealOnScroll>
 
-        {/* Text */}
-        <RevealOnScroll delay={0.15}>
-          <div className="flex flex-col gap-6">
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-navy leading-tight">
-              {t("title")}
-            </h2>
-            <p className="text-base text-navy/70 leading-relaxed">
-              {t("paragraph1")}
-            </p>
-            <p className="text-base text-navy/70 leading-relaxed">
-              {t("paragraph2")}
-            </p>
-            <p className="font-serif text-lg text-navy/50 italic mt-2">
-              {t("tagline")}
-            </p>
+        <RevealOnScroll delay={0.12}>
+          <div className="max-w-xl">
+            <p className="eyebrow">{t("eyebrow")}</p>
+            <h2 className="section-title mt-5">{t("title")}</h2>
+            <div className="mt-8 space-y-5 text-base leading-8 text-ink/65">
+              <p>{t("paragraph1")}</p>
+              <p>{t("paragraph2")}</p>
+            </div>
+            <p className="mt-9 font-serif text-2xl italic text-clay">{t("signature")}</p>
           </div>
         </RevealOnScroll>
       </div>

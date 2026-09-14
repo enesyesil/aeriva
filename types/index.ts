@@ -1,25 +1,29 @@
-// ─── Sales Options ───
-export const SALES_OPTION_KEYS = ["general", "retail", "wholesale", "enterprise"] as const;
-export type SalesOptionKey = (typeof SALES_OPTION_KEYS)[number];
+export const INQUIRY_TYPE_KEYS = ["general", "product", "wholesale"] as const;
 
-// ─── Contact Form ───
+export type InquiryType = (typeof INQUIRY_TYPE_KEYS)[number];
+
 export interface ContactFormData {
   name: string;
   email: string;
-  salesOption: SalesOptionKey;
+  inquiryType: InquiryType;
   message: string;
+  locale: string;
+  productId?: string;
 }
 
-// ─── Fragrance ───
-export interface Fragrance {
+export type ProductLine = "estila" | "mavigol";
+export type ProductKind = "eau-de-parfum" | "reed-diffuser";
+export type ProductAudience = "women" | "men" | "unisex" | "home";
+
+export interface Product {
   id: string;
-  color: string;
-  image: string;
-}
-
-// ─── Store Location ───
-export interface StoreLocation {
-  key: string;
-  lat: number;
-  lng: number;
+  slug: string;
+  line: ProductLine;
+  kind: ProductKind;
+  code?: string;
+  audience: ProductAudience;
+  sizeMl?: number;
+  images: string[];
+  accent: string;
+  translationKey: string;
 }

@@ -1,30 +1,25 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-
-interface RevealOnScrollProps {
-  children: React.ReactNode;
-  delay?: number;
-  duration?: number;
-  className?: string;
-}
+import type { ReactNode } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function RevealOnScroll({
   children,
+  className = "",
   delay = 0,
-  duration = 0.7,
-  className,
-}: RevealOnScrollProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const reduceMotion = useReducedMotion();
 
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-      transition={{ duration, delay, ease: "easeOut" }}
+      initial={reduceMotion ? false : { opacity: 0, y: 18, scale: 0.99 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.18 }}
+      transition={{ duration: reduceMotion ? 0 : 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}

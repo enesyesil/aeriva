@@ -1,17 +1,13 @@
 import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Fragrances from "@/components/sections/Fragrances";
-import WhyUs from "@/components/sections/WhyUs";
-import Contact from "@/components/sections/Contact";
+import HomeExplore from "@/components/sections/HomeExplore";
+import Trade from "@/components/sections/Trade";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Hero />
-      <About />
-      <Fragrances />
-      <WhyUs />
-      <Contact />
+      <HomeExplore />
+      <Trade />
     </>
   );
 }

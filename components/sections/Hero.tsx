@@ -1,144 +1,126 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function Hero() {
   const t = useTranslations("hero");
+  const locale = useLocale();
+  const reduceMotion = useReducedMotion();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (reduceMotion) {
+      video.pause();
+      video.currentTime = 0;
+      return;
+    }
+
+    void video
+      .play()
+      .then(() => setIsPlaying(!video.paused))
+      .catch(() => {
+        // Visitors can start the film with the visible playback control.
+      });
+  }, [reduceMotion]);
+
+  const toggleVideo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) void video.play();
+    else video.pause();
+  };
+  const enter = (delay: number) => ({
+    initial: reduceMotion ? false : { opacity: 0, y: 22 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.75, delay: reduceMotion ? 0 : delay, ease: "easeOut" as const },
+  });
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-20">
-        {/* Overline accent */}
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 1, delay: 0.1, ease: "easeOut" }}
-          className="flex items-center gap-4 mb-6"
-        >
-          <span className="block w-8 h-[1px] bg-navy/15" />
-          <span
-            className="text-[10px] sm:text-[11px] font-sans font-medium tracking-[0.4em] uppercase text-navy/40"
-          >
-            {t("overline")}
-          </span>
-          <span className="block w-8 h-[1px] bg-navy/15" />
-        </motion.div>
+    <section className="hero-stage relative flex items-center justify-center overflow-hidden bg-ink px-5 pb-20 pt-28 text-white sm:px-8 sm:pb-20 sm:pt-32 lg:pb-24 lg:pt-36">
+      <video
+        ref={videoRef}
+        className="absolute inset-0 h-full w-full scale-[1.01] object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/images/hero/dauvena-nature-poster.jpeg"
+        aria-hidden="true"
+        onCanPlay={(event) => setIsPlaying(!event.currentTarget.paused)}
+        onPlaying={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      >
+        <source src="/videos/dauvena-hero-nature.mp4" type="video/mp4" />
+      </video>
+      <div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(18,26,27,0.28)_0%,rgba(18,26,27,0.5)_58%,rgba(13,19,20,0.76)_100%)]"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,15,16,0.42)_0%,rgba(10,15,16,0.06)_38%,rgba(10,15,16,0.5)_100%)]"
+        aria-hidden="true"
+      />
 
-        {/* Headline */}
-        <div className="py-1">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="font-serif text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] text-navy leading-[1.2] max-w-4xl"
-          >
-            {t("headlineTop")}
-          </motion.h1>
-        </div>
-        <div className="py-1">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="font-serif text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] text-navy leading-[1.2] max-w-4xl italic"
-          >
-            {t("headlineBottom")}
-          </motion.h1>
-        </div>
-
-        {/* Thin rule */}
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-          className="w-12 h-[1px] bg-navy/15 my-5"
-        />
-
-        {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.9, ease: "easeOut" }}
-          className="text-[14px] sm:text-base md:text-lg text-navy/55 font-sans tracking-wide max-w-lg leading-relaxed"
-        >
-          {t("subheadline")}
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center text-center">
+        <motion.p {...enter(0.05)} className="eyebrow !text-white/65">
+          {t("eyebrow")}
         </motion.p>
-
-        {/* CTA — 3D Button */}
-        <motion.a
-          href="#fragrances"
-          onClick={(e) => {
-            e.preventDefault();
-            document
-              .getElementById("fragrances")
-              ?.scrollIntoView({ behavior: "smooth" });
-          }}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.2, ease: "easeOut" }}
-          className="mt-10 group relative px-10 py-4 text-[11px] sm:text-[12px] font-medium tracking-[0.25em] uppercase cursor-pointer select-none"
-          style={{
-            color: "#ffffff",
-            background:
-              "linear-gradient(180deg, #1b2a4a 0%, #0f1a30 100%)",
-            borderRadius: "9999px",
-            border: "1px solid rgba(27,42,74,0.9)",
-            boxShadow:
-              "0 6px 0 0 #060d1a, 0 10px 30px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.12)",
-            transform: "translateY(-2px)",
-            transition: "all 0.15s cubic-bezier(0.25, 0.1, 0.25, 1)",
-          }}
-          onMouseEnter={(e) => {
-            const el = e.currentTarget;
-            el.style.transform = "translateY(0px)";
-            el.style.boxShadow =
-              "0 3px 0 0 #060d1a, 0 5px 18px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.12)";
-            el.style.background =
-              "linear-gradient(180deg, #243558 0%, #14203d 100%)";
-          }}
-          onMouseLeave={(e) => {
-            const el = e.currentTarget;
-            el.style.transform = "translateY(-2px)";
-            el.style.boxShadow =
-              "0 6px 0 0 #060d1a, 0 10px 30px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.12)";
-            el.style.background =
-              "linear-gradient(180deg, #1b2a4a 0%, #0f1a30 100%)";
-          }}
-          onMouseDown={(e) => {
-            const el = e.currentTarget;
-            el.style.transform = "translateY(2px)";
-            el.style.boxShadow =
-              "0 0px 0 0 #060d1a, 0 1px 6px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.05)";
-          }}
-          onMouseUp={(e) => {
-            const el = e.currentTarget;
-            el.style.transform = "translateY(0px)";
-            el.style.boxShadow =
-              "0 3px 0 0 #060d1a, 0 5px 18px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.12)";
-          }}
+        <motion.h1
+          {...enter(0.16)}
+          className="mt-5 max-w-[12ch] font-serif text-[clamp(3.5rem,8vw,7.8rem)] leading-[0.88] tracking-[-0.055em] text-white"
         >
-          <span className="relative z-10">{t("cta")}</span>
-        </motion.a>
+          {t("titleLead")}
+          <span className="mt-2 block italic text-peach">{t("titleAccent")}</span>
+        </motion.h1>
+        <motion.p
+          {...enter(0.27)}
+          className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/75 sm:text-lg sm:leading-8"
+        >
+          {t("body")}
+        </motion.p>
+        <motion.div
+          {...enter(0.38)}
+          className="mt-7 flex flex-wrap justify-center gap-3"
+        >
+          <a href={`/${locale}/products`} className="button-light">
+            {t("primaryCta")}
+          </a>
+          <a
+            href={`/${locale}/brands`}
+            className="button-secondary !border-white/35 !text-white hover:!border-white"
+          >
+            {t("secondaryCta")}
+          </a>
+        </motion.div>
+        <motion.div
+          {...enter(0.5)}
+          className="mt-8 flex items-center gap-4 text-[0.58rem] font-semibold tracking-[0.24em] uppercase text-white/62"
+        >
+          <span className="h-px w-10 bg-white/35" aria-hidden="true" />
+          Estila Exclusive · Mavigöl
+          <span className="h-px w-10 bg-white/35" aria-hidden="true" />
+        </motion.div>
       </div>
 
-      {/* Scroll indicator — a gentle breathing line */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+      <button
+        type="button"
+        onClick={toggleVideo}
+        aria-pressed={isPlaying}
+        aria-label={isPlaying ? t("pauseVideo") : t("playVideo")}
+        className="absolute bottom-5 right-5 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-ink/40 text-white backdrop-blur-md transition hover:bg-white hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:bottom-7 sm:right-7"
       >
-        <span className="text-[9px] font-sans font-medium tracking-[0.35em] uppercase text-navy/20">
-          Scroll
+        <span aria-hidden="true" className="text-sm">
+          {isPlaying ? "Ⅱ" : "▶"}
         </span>
-        <motion.div
-          animate={{ scaleY: [1, 1.6, 1] }}
-          transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-          className="w-[1px] h-6 bg-navy/15 origin-top"
-        />
-      </motion.div>
+      </button>
     </section>
   );
 }

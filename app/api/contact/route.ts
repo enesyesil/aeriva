@@ -1,12 +1,18 @@
 import { NextResponse } from "next/server";
-import { SALES_OPTION_KEYS, type SalesOptionKey } from "@/types";
+import nodemailer from "nodemailer";
+import { validateContactBody } from "@/data/contact";
 
-// ─── Rate Limiter (in-memory) ───
 const rateMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT = 10;
-const RATE_WINDOW_MS = 60_000; // 1 minute
+const RATE_WINDOW_MS = 60_000;
 
-function isRateLimited(ip: string): boolean {
+const messageLoaders = {
+  en: () => import("@/messages/en.json"),
+  fr: () => import("@/messages/fr.json"),
+  nl: () => import("@/messages/nl.json"),
+} as const;
+
+function isRateLimited(ip: string) {
   const now = Date.now();
   const entry = rateMap.get(ip);
 
@@ -15,91 +21,114 @@ function isRateLimited(ip: string): boolean {
     return false;
   }
 
-  entry.count++;
+  entry.count += 1;
   return entry.count > RATE_LIMIT;
 }
 
-// ─── Validation helpers ───
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-function sanitize(input: string): string {
-  return input
-    .replace(/<[^>]*>/g, "")     // strip HTML tags
+function escapeHtml(value: string) {
+  return value
     .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
-    .trim();
+    .replace(/'/g, "&#039;");
 }
 
-function validateContactForm(body: Record<string, unknown>): {
-  valid: true;
-  data: { name: string; email: string; salesOption: SalesOptionKey; message: string };
-} | { valid: false; error: string } {
-  const { name, email, salesOption, message } = body;
+function getSmtpConfig() {
+  const host = process.env.SMTP_HOST;
+  const port = Number(process.env.SMTP_PORT);
+  const user = process.env.SMTP_USER;
+  const password = process.env.SMTP_PASSWORD;
+  const from = process.env.CONTACT_FROM_EMAIL;
+  const to = process.env.CONTACT_TO_EMAIL;
 
-  if (typeof name !== "string" || typeof email !== "string" || typeof message !== "string") {
-    return { valid: false, error: "All fields are required." };
-  }
-
-  const cleanName = sanitize(name);
-  const cleanEmail = sanitize(email);
-  const cleanMessage = sanitize(message);
-
-  if (!cleanName || cleanName.length > 100) {
-    return { valid: false, error: "Name is required (max 100 characters)." };
-  }
-
-  if (!cleanEmail || cleanEmail.length > 254 || !EMAIL_RE.test(cleanEmail)) {
-    return { valid: false, error: "A valid email is required." };
-  }
-
-  if (!cleanMessage || cleanMessage.length > 2000) {
-    return { valid: false, error: "Message is required (max 2000 characters)." };
-  }
-
-  // salesOption is optional for "general" fallback, but must be valid if provided
-  let validOption: SalesOptionKey = "general";
-  if (salesOption && typeof salesOption === "string") {
-    if (!SALES_OPTION_KEYS.includes(salesOption as SalesOptionKey)) {
-      return { valid: false, error: "Invalid inquiry type." };
-    }
-    validOption = salesOption as SalesOptionKey;
+  if (!host || !Number.isInteger(port) || !user || !password || !from || !to) {
+    return null;
   }
 
   return {
-    valid: true,
-    data: { name: cleanName, email: cleanEmail, salesOption: validOption, message: cleanMessage },
+    transport: {
+      host,
+      port,
+      secure: process.env.SMTP_SECURE === "true",
+      auth: { user, pass: password },
+    },
+    from,
+    to,
   };
 }
 
-// ─── Route handler ───
 export async function POST(request: Request) {
+  const forwarded = request.headers.get("x-forwarded-for");
+  const ip = forwarded?.split(",")[0]?.trim() || "unknown";
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json({ error: "Too many requests." }, { status: 429 });
+  }
+
   try {
-    // Rate limiting by IP
-    const forwarded = request.headers.get("x-forwarded-for");
-    const ip = forwarded?.split(",")[0]?.trim() || "unknown";
-
-    if (isRateLimited(ip)) {
-      return NextResponse.json(
-        { error: "Too many requests. Please try again later." },
-        { status: 429 }
-      );
-    }
-
-    const body = await request.json();
-    const result = validateContactForm(body);
-
+    const body = (await request.json()) as Record<string, unknown>;
+    const result = validateContactBody(body);
     if (!result.valid) {
       return NextResponse.json({ error: result.error }, { status: 400 });
     }
 
-    // TODO: Store in database once Prisma is configured
-    // await db.contactSubmission.create({ data: result.data });
+    const smtp = getSmtpConfig();
+    if (!smtp) {
+      return NextResponse.json(
+        { error: "Contact delivery is not configured." },
+        { status: 503 },
+      );
+    }
+
+    const { name, email, inquiryType, locale, message, product } = result.data;
+    const messages = (await messageLoaders[locale]()).default;
+    const productContent = product
+      ? messages.products.items[product.id as keyof typeof messages.products.items]
+      : undefined;
+    const productLabel = product && productContent
+      ? `${product.code ? `${product.code} · ` : ""}${productContent.name}`
+      : "No specific product";
+    const lineLabel = product
+      ? product.line === "estila"
+        ? "Estila Exclusive"
+        : "Mavigöl"
+      : "—";
+    const subject = `[Dauvena Cosmetics] ${inquiryType} inquiry${
+      productContent ? ` — ${productContent.name}` : ""
+    }`;
+    const text = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Locale: ${locale}`,
+      `Inquiry type: ${inquiryType}`,
+      `Product: ${productLabel}`,
+      `Product line: ${lineLabel}`,
+      "",
+      message,
+    ].join("\n");
+
+    const transporter = nodemailer.createTransport(smtp.transport);
+    await transporter.sendMail({
+      from: smtp.from,
+      to: smtp.to,
+      replyTo: email,
+      subject,
+      text,
+      html: `
+        <h1 style="font: 600 20px Arial, sans-serif; color: #20282a;">Dauvena Cosmetics inquiry</h1>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Locale:</strong> ${escapeHtml(locale)}</p>
+        <p><strong>Inquiry type:</strong> ${escapeHtml(inquiryType)}</p>
+        <p><strong>Product:</strong> ${escapeHtml(productLabel)}</p>
+        <p><strong>Product line:</strong> ${escapeHtml(lineLabel)}</p>
+        <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
+      `,
+    });
 
     return NextResponse.json({ success: true });
   } catch {
-    return NextResponse.json(
-      { error: "Invalid request." },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Unable to send inquiry." }, { status: 502 });
   }
 }

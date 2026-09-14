@@ -1,29 +1,17 @@
+/* eslint-disable @next/next/no-page-custom-font -- This locale layout is the app's root document. */
 import type { Metadata } from "next";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages } from "next-intl/server";
+import type { ReactNode } from "react";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import "@/app/globals.css";
+import { routing } from "@/i18n/routing";
+import "../globals.css";
 
-const metaByLocale: Record<string, { title: string; description: string }> = {
-  en: {
-    title: "Dauvéna — European Luxury Fragrances",
-    description:
-      "Discover Dauvéna, a premium European perfume house crafting fragrances with poetic restraint and intentional elegance. Born in Belgium.",
-  },
-  fr: {
-    title: "Dauvéna — Parfums de luxe européens",
-    description:
-      "Découvrez Dauvéna, une maison de parfum européenne d'exception. Des créations empreintes de retenue poétique et d'élégance intentionnelle. Née en Belgique.",
-  },
-  nl: {
-    title: "Dauvéna — Europese luxe geuren",
-    description:
-      "Ontdek Dauvéna, een premium Europees parfumhuis dat geuren creëert met poëtische ingetogenheid en doordachte elegantie. Geboren in België.",
-  },
-};
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
@@ -31,53 +19,51 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const meta = metaByLocale[locale] || metaByLocale.en;
+  if (!hasLocale(routing.locales, locale)) return {};
+
+  const t = await getTranslations({ locale, namespace: "meta" });
   return {
-    title: meta.title,
-    description: meta.description,
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: `/${locale}`,
+      languages: Object.fromEntries(
+        routing.locales.map((language) => [language, `/${language}`]),
+      ),
+    },
     openGraph: {
-      title: meta.title,
-      description: meta.description,
+      title: t("title"),
+      description: t("description"),
       type: "website",
-      siteName: "Dauvéna",
+      siteName: "Dauvena Cosmetics",
     },
   };
-}
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
+}: Readonly<{
+  children: ReactNode;
   params: Promise<{ locale: string }>;
-}) {
+}>) {
   const { locale } = await params;
-
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
+  if (!hasLocale(routing.locales, locale)) notFound();
 
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Playfair+Display&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans text-navy bg-ivory-light antialiased">
+      <body className="font-sans bg-canvas text-ink antialiased">
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           <main>{children}</main>

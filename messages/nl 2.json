@@ -1,0 +1,226 @@
+{
+  "meta": {
+    "title": "Dauvena Cosmetics | Parfum en huisgeur",
+    "description": "Ontdek Dauvena Cosmetics, waar karaktervolle Estila-parfums en Mavigöl-huisgeuren samenkomen."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "Over ons",
+    "products": "Producten",
+    "perfumes": "Parfums",
+    "homeFragrance": "Huisgeur",
+    "trade": "Voor retailers",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Parfum en huisgeur",
+    "titleLead": "Geur voor de momenten",
+    "titleAccent": "die van jou worden.",
+    "body": "Dauvena Cosmetics brengt expressieve Estila-parfums en sfeervolle Mavigöl-huisgeuren samen in één zorgvuldig samengestelde collectie.",
+    "primaryCta": "Ontdek de producten",
+    "secondaryCta": "Bekijk de collecties",
+    "perfumeAlt": "Estila Exclusive-parfum in een redactionele setting",
+    "homeAlt": "Vier Mavigöl geurstokjes"
+  },
+  "about": {
+    "eyebrow": "Dauvena Cosmetics",
+    "title": "Twee manieren om geur deel te maken van elke dag.",
+    "paragraph1": "Onze parfumcollectie draait om karakter, herinnering en de intieme manier waarop een geur op de huid tot rust komt. Elke compositie vertelt een eigen verhaal, van warme gourmanddiepte tot heldere aromatische frisheid.",
+    "paragraph2": "Onze huisgeuren bepalen de sfeer van een ruimte met duidelijke, vertrouwde geurrichtingen. Samen maken de twee collecties het eenvoudig om een geur te kiezen voor jezelf of voor de ruimtes om je heen.",
+    "signature": "Persoonlijk op de huid. Expressief in huis.",
+    "imageAlt": "Mavigöl Mango geurstokjes omringd door verse mango"
+  },
+  "catalogue": {
+    "eyebrow": "De catalogus",
+    "title": "Vind jouw sfeer",
+    "subtitle": "Ontdek parfums voor de huid en geurstokjes voor de ruimtes waarin je leeft.",
+    "perfumesTitle": "Estila Exclusive-parfums",
+    "perfumesSubtitle": "Vijf composities, elk met een eigen karakter en een volledig geurverhaal.",
+    "homeTitle": "Mavigöl-huisgeuren",
+    "homeSubtitle": "Vier geurstokjes van 100 ml, geïnspireerd door oceaanlucht, lavendel, sandelhout en rijpe mango.",
+    "viewProduct": "Ontdek het verhaal",
+    "viewDiffuser": "Ontdek de geur",
+    "perfumeLabel": "Eau de parfum",
+    "diffuserLabel": "Geurstokjes"
+  },
+  "trade": {
+    "eyebrow": "Retailpartnerschappen",
+    "title": "Breng de collectie naar jouw klanten.",
+    "body": "Retailers kunnen contact opnemen met Dauvena Cosmetics over de actuele parfum- en huisgeurcatalogus. Vertel ons over je onderneming en de producten waarin je geïnteresseerd bent; wij antwoorden met de relevante informatie.",
+    "consumerTitle": "Op zoek naar een product?",
+    "consumerBody": "Kies een geur en stuur vanaf de productpagina een gerichte aanvraag.",
+    "partnerTitle": "Koop je in voor een bedrijf?",
+    "partnerBody": "Kies de groothandelsaanvraag zodat we je assortiment en behoeften goed begrijpen.",
+    "cta": "Start een groothandelsaanvraag"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Vraag naar een geur",
+    "subtitle": "Stuur ons je vraag en voeg een product toe als je er al een in gedachten hebt.",
+    "name": "Naam",
+    "email": "E-mail",
+    "inquiryType": "Type aanvraag",
+    "inquiryTypes": {
+      "general": "Algemene aanvraag",
+      "product": "Productaanvraag",
+      "wholesale": "Groothandelsaanvraag"
+    },
+    "product": "Product",
+    "noProduct": "Geen specifiek product",
+    "message": "Waarmee kunnen we helpen?",
+    "send": "Aanvraag versturen",
+    "sending": "Bezig met versturen...",
+    "success": "Je aanvraag is verstuurd. We nemen snel contact met je op.",
+    "error": "We konden je aanvraag niet versturen. Controleer je gegevens en probeer het opnieuw.",
+    "privacy": "Je gegevens worden alleen gebruikt om deze aanvraag te beantwoorden."
+  },
+  "footer": {
+    "description": "Dauvena Cosmetics brengt persoonlijk parfum en huisgeur samen in een gerichte, expressieve catalogus.",
+    "tagline": "Geur als onderdeel van elke dag.",
+    "explore": "Ontdekken",
+    "company": "Bedrijf",
+    "contact": "Contact",
+    "rights": "Alle rechten voorbehouden.",
+    "descriptor": "Parfum en huisgeur"
+  },
+  "productPage": {
+    "back": "Terug naar alle producten",
+    "storyTitle": "Het geurverhaal",
+    "detailsTitle": "Geurdetails",
+    "family": "Geurfamilie",
+    "topNotes": "Topnoten",
+    "heartNotes": "Hartnoten",
+    "baseNotes": "Basisnoten",
+    "size": "Inhoud",
+    "audience": "Gemaakt voor",
+    "audiences": {
+      "women": "Vrouwen",
+      "men": "Mannen",
+      "unisex": "Uniseks",
+      "home": "Het huis"
+    },
+    "inquire": "Vraag naar dit product",
+    "related": "Misschien vind je dit ook mooi",
+    "imageLabel": "Bekijk afbeelding {number} van {total}"
+  },
+  "products": {
+    "items": {
+      "w301": {
+        "name": "Vanille Harmony",
+        "headline": "Waar zoetheid en elegantie samenkomen",
+        "shortDescription": "Een omhullende unisekscompositie waarin romige vanille, lichte bloemen en gouden amber elkaar met beheerste elegantie ontmoeten.",
+        "story": [
+          "Sommige geuren blijven alleen op je huid; andere veranderen het moment waarin je je bevindt. Vanille Harmony geeft de vertrouwde zoetheid van vanille een nieuwe vorm met de elegantie van bloemen en de warmte van amber, in een betoverend geurverhaal dat de zintuigen raakt.",
+          "Als eerste is de fluweelzachte textuur van een exotische orchidee merkbaar. Het heldere, elegante karakter van jasmijn versmelt met de romige warmte van vanille en creëert op de huid een opening die zacht en tegelijk indrukwekkend is.",
+          "In het hart ontmoet de verleidelijke zoetheid van suiker de warme, amandelachtige nuances van tonkaboon. Deze rijke combinatie tilt de geur boven een gewone vanille-interpretatie uit en geeft hem diepte, verfijning en een onweerstaanbaar karakter.",
+          "In de laatste beweging komen gouden amber, mysterieus patchoeli en huidnabije muskus naar voren. Wat achterblijft is een elegante signatuur die opvalt zonder luid te zijn, mooier wordt van dichtbij en in de herinnering blijft.",
+          "Vanille Harmony is voor wie zoetheid niet verbergt, maar haar met elegantie draagt."
+        ],
+        "family": "Oriëntaals · Gourmand",
+        "topNotes": "Orchidee · Vanille · Jasmijn",
+        "heartNotes": "Suiker · Tonkaboon",
+        "baseNotes": "Amber · Patchoeli · Muskus"
+      },
+      "g302": {
+        "name": "Velvet Storm",
+        "headline": "Het spoor dat elegantie op de huid achterlaat",
+        "shortDescription": "Stil, poederzacht en gedenkwaardig: een zijdezachte bloemencompositie met iris, heliotroop en schone muskus.",
+        "story": [
+          "Stil, poederachtig en onvergetelijk. Sommige vrouwen hoeven niets te zeggen wanneer ze een ruimte binnenkomen; hun aanwezigheid is al voelbaar. Deze geur is geïnspireerd op die natuurlijke elegantie die geen vertoon nodig heeft.",
+          "Oranjebloesem verschijnt eerst met een heldere, zuivere textuur. Een fijne, levendige toets van roze peper geeft deze sierlijke opening onverwachte energie, als kracht die onder zachtheid verborgen ligt.",
+          "In het hart rijst de nobele, poederachtige schoonheid van iris op. Omringd door sering, hyacint en blauwe regen verandert dit verfijnde centrum door de amandelachtige, romige warmte van heliotroop in een zijdezacht bloemenboeket op de huid. Nostalgisch zonder tot het verleden te behoren, romantisch zonder ooit gewoon te worden.",
+          "In de laatste beweging versmelt de pure zachtheid van rijstpoeder met de huidnabije warmte van muskus. Het roept de volmaakte indruk op van een schone huid, een gestreken wit overhemd en een fijne poederwolk die op de huid achterblijft.",
+          "Niet opzichtig, wel indrukwekkend. Niet zwaar, wel onmisbaar. Een geur die mooier wordt wanneer je dichterbij komt en ook na het afscheid wordt herinnerd.",
+          "Echte elegantie wordt gevoeld voordat ze wordt gezien en herinnerd nadat ze is verdwenen."
+        ],
+        "family": "Poederachtig · Bloemig · Muskusachtig",
+        "topNotes": "Oranjebloesem · Roze peper",
+        "heartNotes": "Iris · Sering · Hyacint · Blauwe regen · Heliotroop",
+        "baseNotes": "Poederachtige noten · Rijstakkoord · Muskus"
+      },
+      "f201": {
+        "name": "Latafa Yara",
+        "headline": "Een roze droom op de huid",
+        "shortDescription": "Romig, vrolijk en verleidelijk, met tropisch fruit, fluweelzachte bloemen, vanille en sandelhout.",
+        "story": [
+          "Romig, vrolijk en onweerstaanbaar aantrekkelijk. Sommige geuren roepen een herinnering op; andere laten je dromen van een mooi moment dat nooit heeft plaatsgevonden. Deze geur brengt zonverwarmd tropisch fruit, fluweelzachte bloemen en zachte vanille samen in een roze droom.",
+          "Eerst voel je de levendige helderheid van mandarijn. De exotische elegantie van orchidee en de poederachtige, amandelachtige textuur van heliotroop omhullen die frisheid en maken er een zachte, vrouwelijke opening van: zoet maar niet kinderlijk, levendig en tegelijk elegant.",
+          "In het hart versmelt rijp tropisch fruit met een romig gourmandakkoord. Het doet denken aan een fruitdessert op een zonnig eiland en creëert op de huid een smakelijke, betoverende warmte. Bij elke ademhaling wordt het zachter en van dichtbij steeds aantrekkelijker.",
+          "Daarna gaat romige vanille samen met schone, huidnabije muskus. Sandelhout geeft de compositie een gladde diepte en brengt de zoete kant met elegantie in evenwicht. Een warm, zacht en onvergetelijk spoor blijft achter, als een uitnodiging tot een omhelzing.",
+          "Niet volledig onschuldig en niet overdreven uitgesproken; niet alleen zoet en niet alleen bloemig. Voor vrouwen die hun eigen licht dragen en overal vreugde en elegantie achterlaten.",
+          "Sommige schoonheid zie je niet; je voelt haar als een roze droom die op de huid tot bloei komt."
+        ],
+        "family": "Oriëntaals · Vanille · Fruitige gourmand",
+        "topNotes": "Orchidee · Heliotroop · Mandarijn",
+        "heartNotes": "Tropisch fruit · Gourmandakkoord",
+        "baseNotes": "Vanille · Muskus · Sandelhout"
+      },
+      "c101": {
+        "name": "SAUVAGE",
+        "headline": "Voorbij de grenzen",
+        "shortDescription": "Een frisse, aromatische en houtachtige compositie met bergamot, peper, lavendel en een mineraal amberspoor.",
+        "story": [
+          "Een geur voor mannen die hun vrijheid niet laten passen binnen grenzen die anderen trekken. Kracht hoeft zich niet altijd te tonen. Soms voel je haar in één blik, een rustige houding en een onvergetelijk spoor dat achterblijft.",
+          "Geïnspireerd door de moderne man die zijn eigen weg kiest en alleen al door zijn aanwezigheid wordt opgemerkt, opent de geur met de scherpe, energieke frisheid van Calabrische bergamot. Zwarte peper geeft de heldere citrusstructuur een krachtig, treffend karakter: fris, duidelijk en vastberaden.",
+          "In het hart ontmoet de kruidige warmte van Sichuan- en roze peper de aromatische zuiverheid van lavendel. Geranium en elemi geven de levendige structuur een verfijnde glans, terwijl vetiver en patchoeli de standvastige, aardse kracht onder de compositie onthullen.",
+          "Tot slot wordt de minerale amberwarmte van ambroxan duidelijk op de huid. Droog, mannelijk cederhout en de harsachtige diepte van labdanum voltooien de geur met een krachtige signatuur. Het spoor is even charismatisch als fris en even tijdloos als modern.",
+          "Voor mannen die niet op goedkeuring wachten, niet van hun pad afwijken en kracht putten uit hun houding in plaats van hun stem.",
+          "Sommige mannen passen zich niet aan de menigte aan; ze veranderen de sfeer waar ze ook binnenkomen."
+        ],
+        "family": "Aromatisch · Fris · Houtachtig",
+        "topNotes": "Calabrische bergamot · Zwarte peper",
+        "heartNotes": "Sichuanpeper · Roze peper · Lavendel · Geranium · Vetiver · Patchoeli · Elemi",
+        "baseNotes": "Ambroxan · Cederhout · Labdanum"
+      },
+      "f167": {
+        "name": "YSL LIBRE",
+        "headline": "De elegantie van contrasten",
+        "shortDescription": "Een zelfverzekerde bloemig-aromatische compositie die lavendel, oranjebloesem, vanille, muskus en hout in balans brengt.",
+        "story": [
+          "Een geur voor vrouwen die hun kracht niet verbergen en hun elegantie niet opgeven. Een vrouw kan tegelijk moedig en sierlijk, afstandelijk en onweerstaanbaar aantrekkelijk zijn, want echt karakter past nooit in één vorm.",
+          "De geur is geïnspireerd op vrouwen die alle tegenstellingen in zichzelf in volmaakte harmonie dragen. Hij opent met de levendige glans van mandarijn en de frisse energie van bergamot. Donkere zwarte bes geeft de opening verleidelijke diepte, terwijl lavendel een zelfverzekerde, onverwachte signatuur toevoegt.",
+          "Warme, stralende oranjebloesem komt in het hart naar voren. De sensuele elegantie van jasmijn ontmoet de aromatische koelte van lavendel en vormt een treffende balans tussen vrouwelijkheid en kracht. Zo worden vastberadenheid onder zachtheid en moed binnen elegantie zichtbaar.",
+          "Madagaskarvanille omhult de huid daarna met romige warmte. Huidnabije muskus ontmoet de kracht van cederhout en de diepe glans van ambergris. Wat achterblijft is een verfijnde signatuur die de sfeer verandert en moeilijk te vergeten is.",
+          "Voor vrouwen die niet uitleggen wie ze zijn, weten wat ze willen en hun leven vormen door hun eigen keuzes in plaats van de verwachtingen van anderen.",
+          "Echte elegantie is niet het volgen van regels, maar het scheppen van je eigen houding."
+        ],
+        "family": "Bloemig · Aromatisch · Vanille",
+        "topNotes": "Lavendel · Mandarijn · Zwarte bes · Bergamot",
+        "heartNotes": "Oranjebloesem · Jasmijn · Lavendel",
+        "baseNotes": "Madagaskarvanille · Muskus · Cederhout · Ambergris"
+      },
+      "okyanus": {
+        "name": "Okyanus",
+        "headline": "Een heldere sfeer, geïnspireerd door de oceaan",
+        "shortDescription": "Een frisse huisgeur, geïnspireerd door open water en het schone gevoel van zeelucht.",
+        "story": [
+          "Okyanus geeft de ruimte een fris en luchtig karakter. De richting, geïnspireerd door de oceaan, past bij plekken waar de sfeer helder, koel en verfrist mag aanvoelen."
+        ]
+      },
+      "lavanta": {
+        "name": "Lavanta",
+        "headline": "Een rustige lavendelsfeer",
+        "shortDescription": "Een zacht aromatische huisgeur rond het vertrouwde karakter van lavendel.",
+        "story": [
+          "Lavanta geeft de ruimte een kalme, licht aromatische aanwezigheid. De lavendelinspiratie past bij stille hoeken, avondrituelen en ruimtes waar een zachtere sfeer op haar plaats is."
+        ]
+      },
+      "sandal": {
+        "name": "Sandal Ağacı",
+        "headline": "Een warme sfeer, geïnspireerd door hout",
+        "shortDescription": "Een warme huisgeur, geïnspireerd door het zachte, geaarde karakter van sandelhout.",
+        "story": [
+          "Sandal Ağacı brengt een warme, geaarde stemming in de ruimte. De sandelhoutinspiratie past bij uitnodigende woonruimtes en momenten die vragen om een beheerste sfeer."
+        ]
+      },
+      "mango": {
+        "name": "Mango",
+        "headline": "Een heldere sfeer, geïnspireerd door fruit",
+        "shortDescription": "Een vrolijke huisgeur, geïnspireerd door het sappige, zonnige karakter van rijpe mango.",
+        "story": [
+          "Mango geeft de ruimte een heldere, ongedwongen energie. De fruitige inspiratie brengt een vrolijk accent in alledaagse ruimtes."
+        ]
+      }
+    }
+  }
+}

@@ -1,125 +1,306 @@
 {
+  "meta": {
+    "title": "Dauvena Cosmetics | Parfums et parfums d'intérieur",
+    "description": "Découvrez Dauvena Cosmetics, qui réunit les parfums de caractère Estila et les parfums d'intérieur Mavigöl."
+  },
   "nav": {
     "home": "Accueil",
     "about": "À propos",
-    "fragrances": "Parfums",
-    "whyUs": "Ventes",
-    "locations": "Points de Vente",
+    "brands": "Nos marques",
+    "products": "Produits",
+    "perfumes": "Parfums",
+    "homeFragrance": "Parfums d'intérieur",
+    "trade": "Détaillants",
     "contact": "Contact"
   },
   "hero": {
-    "overline": "Maison de Parfum · Belgique",
-    "headlineTop": "L'art d'être",
-    "headlineBottom": "presque un souvenir",
-    "subheadline": "Un parfum ne se porte pas. Il s'emporte — comme la lumière garde sa chaleur bien après que le soleil a tourné.",
-    "cta": "Explorer la collection"
+    "eyebrow": "Parfums et parfums d'intérieur",
+    "titleLead": "Des senteurs pour les instants",
+    "titleAccent": "qui deviennent les vôtres.",
+    "body": "Dauvena Cosmetics réunit les parfums expressifs Estila et les parfums d'intérieur Mavigöl dans une collection pensée avec soin.",
+    "primaryCta": "Explorer les produits",
+    "secondaryCta": "Découvrir les collections",
+    "perfumeAlt": "Parfum Estila Exclusive dans un décor éditorial",
+    "homeAlt": "Quatre parfums d'intérieur à bâtonnets Mavigöl",
+    "playVideo": "Lire la vidéo d’arrière-plan",
+    "pauseVideo": "Mettre la vidéo d’arrière-plan en pause"
   },
   "about": {
-    "title": "Notre philosophie",
-    "paragraph1": "Dauvéna est née de la conviction que le parfum n'est pas une parure — c'est une identité. Chaque composition est une conversation discrète entre le souvenir et l'intention, créée au cœur de l'Europe.",
-    "paragraph2": "Nous travaillons avec retenue, choisissant moins de notes pour en dire davantage. Nos parfums ne sont pas imposants. Ils sont présents — persistant aux confins de la perception, attendant d'être remarqués.",
-    "tagline": "Conçu avec intention. Porté avec sens."
+    "eyebrow": "Dauvena Cosmetics",
+    "title": "Deux façons d'inscrire le parfum dans le quotidien.",
+    "paragraph1": "Notre collection de parfums explore le caractère, la mémoire et la manière intime dont une fragrance se pose sur la peau. Chaque composition raconte sa propre histoire, de la profondeur gourmande et chaleureuse à la fraîcheur aromatique lumineuse.",
+    "paragraph2": "Nos parfums d'intérieur façonnent l'atmosphère d'une pièce autour de directions olfactives claires et familières. Ensemble, les deux collections permettent de choisir une senteur pour soi ou pour les espaces qui nous entourent.",
+    "signature": "Personnel sur la peau. Expressif dans la maison.",
+    "imageAlt": "Parfum d'intérieur à bâtonnets Mavigöl Mango entouré de mangues fraîches"
   },
-  "fragrances": {
-    "title": "La Collection",
-    "subtitle": "Chaque parfum raconte une histoire que les mots seuls ne sauraient exprimer.",
-    "items": {
-      "lumiere": {
-        "name": "Lumière Dorée",
-        "description": "Un murmure ensoleillé de bergamote, de thé blanc et de santal. La lumière du matin capturée dans le verre.",
-        "notes": "Bergamote · Thé blanc · Santal"
-      },
-      "velours": {
-        "name": "Velours de Nuit",
-        "description": "Une obscurité profonde et veloutée. Oud, ambre noir et une trace de rose séchée. Pour ceux qui parlent en silence.",
-        "notes": "Oud · Ambre noir · Rose séchée"
-      },
-      "brume": {
-        "name": "Brume Éternelle",
-        "description": "Le calme après la pluie. Iris, pierre mouillée et musc doux. Un parfum qui se souvient.",
-        "notes": "Iris · Pierre mouillée · Musc doux"
-      }
-    }
+  "homeExplore": {
+    "eyebrow": "Explorer Dauvena",
+    "title": "Deux collections, un même univers olfactif.",
+    "intro": "Découvrez les deux lignes réunies par Dauvena Cosmetics, puis parcourez chaque fragrance selon son caractère, son format et son atmosphère.",
+    "brandsTitle": "Nos marques",
+    "brandsBody": "Découvrez Estila Exclusive pour le parfum personnel et Mavigöl pour les espaces qui vous entourent.",
+    "brandsCta": "Découvrir les marques",
+    "brandsImageAlt": "Les quatre parfums d'intérieur à bâtonnets Mavigöl",
+    "productsTitle": "Tous les produits",
+    "productsBody": "Explorez cinq eaux de parfum et quatre diffuseurs à bâtonnets de 100 ml dans le catalogue complet.",
+    "productsCta": "Voir le catalogue",
+    "productsImageAlt": "Parfum Estila Exclusive dans un décor éditorial sombre",
+    "productCount": "9 fragrances"
   },
-  "sales": {
-    "title": "Options de Vente",
-    "subtitle": "Que vous soyez un particulier ou un professionnel, nous avons l'option adaptée.",
-    "options": {
-      "retail": {
-        "badge": "Particulier",
-        "title": "Vente au Détail",
-        "description": "Achetez directement dans notre collection. Chaque parfum est livré dans notre emballage signature, prêt à être découvert.",
-        "highlights": ["Formats complets & coffrets découverte", "Emballage cadeau offert", "Livraison gratuite dès 75 €"],
-        "cta": "Acheter"
-      },
-      "wholesale": {
-        "badge": "Professionnel",
-        "title": "Vente en Gros",
-        "description": "Devenez partenaire Dauvéna pour votre boutique, hôtel ou espace de vente. Tarifs compétitifs avec un accompagnement dédié.",
-        "highlights": ["Minimum 20 unités par commande", "Tarifs dégressifs par volume", "Gestionnaire de compte dédié"],
-        "cta": "Demander un Devis"
-      },
-      "bespoke": {
-        "badge": "Entreprise",
-        "title": "Entreprise",
-        "description": "Programmes de fragrances sur mesure pour entreprises, marques hôtelières et partenaires de vente à grande échelle.",
-        "highlights": ["Équipe dédiée au développement", "Formulation & packaging personnalisés", "Support logistique et distribution mondiale"],
-        "cta": "Contacter les Ventes"
-      }
-    }
+  "brandsPage": {
+    "metaTitle": "Nos marques | Dauvena Cosmetics",
+    "metaDescription": "Découvrez les parfums Estila Exclusive et les senteurs d'intérieur Mavigöl, les deux lignes réunies par Dauvena Cosmetics.",
+    "eyebrow": "Nos marques",
+    "title": "Deux noms. Deux façons de vivre le parfum.",
+    "intro": "Dauvena Cosmetics réunit le parfum personnel et la senteur d'intérieur à travers deux lignes ciblées : Estila Exclusive et Mavigöl.",
+    "estilaKicker": "Parfum personnel",
+    "estilaTitle": "Estila Exclusive",
+    "estilaBody1": "Estila Exclusive est une collection d'eaux de parfum construite autour d'ambiances et de caractères olfactifs distincts. Chaque fragrance possède son propre code et une histoire complète.",
+    "estilaBody2": "La sélection actuelle va de la vanille crémeuse et des fleurs poudrées aux fruits tropicaux, aux agrumes aromatiques et aux contrastes floraux affirmés. Elle offre plusieurs chemins vers un parfum qui devient personnel sur la peau.",
+    "estilaFeature1": "Cinq compositions d'eau de parfum",
+    "estilaFeature2": "Des codes et identités olfactives distincts",
+    "estilaCta": "Explorer les parfums Estila",
+    "estilaImageAlt": "Parfum Estila Exclusive photographié dans une scène éditoriale sombre",
+    "mavigolKicker": "Parfum d'intérieur",
+    "mavigolTitle": "Mavigöl",
+    "mavigolBody1": "Mavigöl invite le parfum dans la maison avec une collection concise de diffuseurs à bâtonnets de 100 ml. Chacun s'articule autour d'une direction olfactive claire et familière.",
+    "mavigolBody2": "Okyanus, Lavanta, Sandal Ağacı et Mango vont de la fraîcheur aromatique à la chaleur et à la lumière fruitée, pour choisir facilement l'atmosphère d'une pièce.",
+    "mavigolFeature1": "Quatre directions olfactives familières",
+    "mavigolFeature2": "Format diffuseur à bâtonnets de 100 ml",
+    "mavigolCta": "Explorer les diffuseurs Mavigöl",
+    "mavigolImageAlt": "Diffuseurs Mavigöl Okyanus, Lavanta, Sandal Ağacı et Mango",
+    "philosophyEyebrow": "La sélection Dauvena",
+    "philosophyTitle": "Le parfum trouve sa place au quotidien.",
+    "philosophyBody": "Les deux lignes jouent des rôles différents, mais poursuivent un même objectif : faire du parfum un élément choisi du style personnel et de l'atmosphère de la maison.",
+    "skinTitle": "Sur la peau",
+    "skinBody": "Estila Exclusive place au centre l'expérience intime du parfum porté, avec des compositions façonnées par l'humeur, la mémoire et le caractère.",
+    "spaceTitle": "Dans la pièce",
+    "spaceBody": "Mavigöl s'appuie sur des directions reconnaissables pour donner aux espaces du quotidien un caractère frais, calme, chaleureux ou joyeux."
+  },
+  "productsPage": {
+    "metaTitle": "Produits | Dauvena Cosmetics",
+    "metaDescription": "Parcourez le catalogue complet Dauvena Cosmetics de parfums Estila Exclusive et de diffuseurs à bâtonnets Mavigöl.",
+    "eyebrow": "Produits",
+    "title": "Un catalogue pour la peau et la maison.",
+    "intro": "Découvrez toutes les fragrances actuellement présentées par Dauvena Cosmetics, des eaux de parfum Estila de caractère aux diffuseurs d'ambiance Mavigöl.",
+    "perfumeCount": "5 parfums",
+    "diffuserCount": "4 diffuseurs",
+    "imageAlt": "La collection complète de quatre diffuseurs à bâtonnets Mavigöl",
+    "guideEyebrow": "Comment explorer",
+    "guideTitle": "Commencez par l'atmosphère recherchée.",
+    "perfumeGuideTitle": "Pour la peau",
+    "perfumeGuideBody": "Chaque page parfum permet de comparer l'histoire, le public, la famille olfactive et la pyramide de notes. Les codes produit restent visibles pour préciser votre demande.",
+    "homeGuideTitle": "Pour la maison",
+    "homeGuideBody": "Choisissez parmi quatre directions claires : Okyanus inspiré de l'océan, Lavanta aromatique, Sandal Ağacı chaleureux ou Mango lumineux.",
+    "helpTitle": "Besoin d'aide pour choisir ?",
+    "helpBody": "Indiquez-nous le caractère, la ligne ou l'atmosphère qui vous intéresse et ajoutez un produit si vous en avez déjà un en tête.",
+    "helpCta": "Poser une question"
+  },
+  "catalogue": {
+    "eyebrow": "Le catalogue",
+    "title": "Trouvez votre atmosphère",
+    "subtitle": "Explorez des parfums pour la peau et des diffuseurs à bâtonnets pensés pour les pièces où vous vivez.",
+    "perfumesTitle": "Parfums Estila Exclusive",
+    "perfumesSubtitle": "Cinq compositions, chacune dotée d'un caractère distinct et d'une histoire olfactive complète.",
+    "homeTitle": "Parfums d'intérieur Mavigöl",
+    "homeSubtitle": "Quatre diffuseurs à bâtonnets de 100 ml inspirés par l'océan, la lavande, le bois de santal et la mangue mûre.",
+    "viewProduct": "Découvrir l'histoire",
+    "viewDiffuser": "Explorer la fragrance",
+    "perfumeLabel": "Eau de parfum",
+    "diffuserLabel": "Diffuseur à bâtonnets"
+  },
+  "trade": {
+    "eyebrow": "Partenariats de vente",
+    "title": "Présentez la collection à vos clients.",
+    "body": "Les détaillants peuvent contacter Dauvena Cosmetics pour échanger au sujet du catalogue actuel de parfums et de senteurs d'intérieur. Présentez-nous votre activité et les produits qui vous intéressent, et nous vous répondrons avec les informations adaptées.",
+    "consumerTitle": "Vous cherchez un produit ?",
+    "consumerBody": "Choisissez une fragrance et envoyez une demande liée au produit depuis sa page.",
+    "partnerTitle": "Vous achetez pour une entreprise ?",
+    "partnerBody": "Sélectionnez la demande professionnelle afin que nous puissions comprendre votre assortiment et vos besoins.",
+    "cta": "Faire une demande professionnelle"
   },
   "contact": {
-    "title": "Nous contacter",
-    "subtitle": "Nous serions ravis de vous entendre.",
+    "eyebrow": "Contact",
+    "title": "Posez une question sur une fragrance",
+    "subtitle": "Envoyez-nous votre question et indiquez un produit si vous en avez déjà un en tête.",
+    "requiredHint": "Les champs marqués * sont obligatoires.",
+    "guideEyebrow": "Choisir votre demande",
+    "guideTitle": "Commencez par le type de demande qui vous correspond.",
+    "formEyebrow": "Votre message",
+    "formTitle": "Partagez les détails.",
     "name": "Nom",
     "email": "E-mail",
-    "salesOption": "Type de demande",
-    "salesOptions": {
+    "inquiryType": "Type de demande",
+    "inquiryTypes": {
       "general": "Demande générale",
-      "retail": "Achat au détail",
-      "wholesale": "Partenariat grossiste",
-      "enterprise": "Programme entreprise"
+      "product": "Demande produit",
+      "wholesale": "Demande professionnelle"
     },
-    "message": "Message",
-    "send": "Soumettre",
-    "success": "Merci. Nous vous répondrons bientôt.",
-    "error": "Une erreur est survenue. Veuillez réessayer."
+    "inquiryHints": {
+      "general": "Questions sur Dauvena Cosmetics ou le catalogue actuel.",
+      "product": "Posez une question sur un parfum ou une senteur d'intérieur précise.",
+      "wholesale": "Présentez votre activité et les produits qui vous intéressent."
+    },
+    "product": "Produit",
+    "noProduct": "Aucun produit précis",
+    "message": "Comment pouvons-nous vous aider ?",
+    "send": "Envoyer la demande",
+    "sendAnother": "Envoyer une autre demande",
+    "sending": "Envoi en cours...",
+    "success": "Votre demande a bien été envoyée. Nous vous répondrons prochainement.",
+    "error": "Nous n'avons pas pu envoyer votre demande. Vérifiez vos informations et réessayez.",
+    "privacy": "Vos coordonnées servent uniquement à répondre à cette demande."
+  },
+  "contactPage": {
+    "metaTitle": "Contact | Dauvena Cosmetics",
+    "metaDescription": "Contactez Dauvena Cosmetics pour une demande générale, produit ou professionnelle."
   },
   "footer": {
-    "tagline": "Une expression discrète de l'identité.",
-    "rights": "Tous droits réservés.",
-    "description": "Née en Belgique, Dauvéna crée des parfums avec retenue poétique et élégance intentionnelle. Chaque composition est une conversation discrète entre mémoire et intention.",
+    "description": "Dauvena Cosmetics réunit parfums personnels et senteurs d'intérieur dans un catalogue ciblé et expressif.",
+    "tagline": "Le parfum au cœur du quotidien.",
     "explore": "Explorer",
-    "company": "Société",
-    "connect": "Suivez-nous"
+    "company": "Entreprise",
+    "contact": "Contact",
+    "rights": "Tous droits réservés.",
+    "descriptor": "Parfums et parfums d'intérieur"
   },
-  "locations": {
-    "title": "Nos Points de Vente",
-    "subtitle": "Rendez-nous visite dans l'un de nos points de vente en Europe.",
-    "stores": {
-      "brussels": {
-        "name": "Dauvéna Bruxelles — Flagship",
-        "address": "Rue du Fossé aux Loups 34, 1000 Bruxelles",
-        "hours": "Lun–Sam : 10h00–19h00",
-        "type": "Magasin Phare"
+  "productPage": {
+    "back": "Retour à tous les produits",
+    "storyTitle": "L'histoire olfactive",
+    "detailsTitle": "Détails de la fragrance",
+    "family": "Famille olfactive",
+    "topNotes": "Notes de tête",
+    "heartNotes": "Notes de cœur",
+    "baseNotes": "Notes de fond",
+    "size": "Contenance",
+    "audience": "Créé pour",
+    "audiences": {
+      "women": "Femmes",
+      "men": "Hommes",
+      "unisex": "Mixte",
+      "home": "La maison"
+    },
+    "inquire": "Se renseigner sur ce produit",
+    "related": "Vous aimerez peut-être aussi",
+    "imageLabel": "Voir l'image {number} sur {total}"
+  },
+  "products": {
+    "items": {
+      "w301": {
+        "name": "Vanille Harmony",
+        "headline": "Quand la douceur rencontre l'élégance",
+        "shortDescription": "Une composition mixte enveloppante où la vanille crémeuse, les fleurs lumineuses et l'ambre doré se rencontrent avec mesure.",
+        "story": [
+          "Certains parfums restent simplement sur la peau ; d'autres transforment l'instant que l'on vit. Vanille Harmony réinterprète la douceur familière de la vanille à travers l'élégance des fleurs et la chaleur de l'ambre, dans une histoire envoûtante qui touche les sens.",
+          "La première impression révèle la texture veloutée d'une orchidée exotique. Le caractère lumineux et gracieux du jasmin rejoint la chaleur crémeuse de la vanille pour créer sur la peau une ouverture douce, mais saisissante.",
+          "Au cœur, la douceur attirante du sucre rencontre les nuances chaudes et légèrement amandées de la fève tonka. Cette alliance riche dépasse l'interprétation classique de la vanille et donne à la fragrance profondeur, sophistication et pouvoir d'attraction.",
+          "Dans le dernier mouvement, la chaleur dorée de l'ambre se mêle au mystère du patchouli et à un musc proche de la peau. Il reste une signature élégante, remarquée sans jamais hausser le ton, plus belle à mesure que l'on s'en approche et durable dans la mémoire.",
+          "Vanille Harmony s'adresse à celles et ceux qui ne cachent pas leur douceur, mais la portent avec élégance."
+        ],
+        "family": "Oriental · Gourmand",
+        "topNotes": "Orchidée · Vanille · Jasmin",
+        "heartNotes": "Sucre · Fève tonka",
+        "baseNotes": "Ambre · Patchouli · Musc"
       },
-      "antwerp": {
-        "name": "Dauvéna Anvers",
-        "address": "Nationalestraat 22, 2000 Anvers",
-        "hours": "Lun–Sam : 10h00–18h00",
-        "type": "Boutique"
+      "g302": {
+        "name": "Velvet Storm",
+        "headline": "La trace que l'élégance laisse sur la peau",
+        "shortDescription": "Silencieuse, poudrée et mémorable : une composition florale soyeuse autour de l'iris, de l'héliotrope et d'un musc propre.",
+        "story": [
+          "Silencieuse, poudrée et inoubliable. Certaines femmes entrent dans une pièce sans avoir besoin de parler pour attirer l'attention ; leur présence se ressent déjà. Cette fragrance s'inspire de cette élégance naturelle qui n'a pas besoin de se montrer.",
+          "La fleur d'oranger apparaît d'abord dans une texture lumineuse et propre. Une touche fine et vive de poivre rose apporte une énergie inattendue à cette ouverture gracieuse, comme une force cachée sous la douceur.",
+          "Au cœur s'élève la beauté noble et poudrée de l'iris. Entouré de lilas, de jacinthe et de glycine, ce centre raffiné devient sur la peau un bouquet floral soyeux grâce à la chaleur crémeuse et amandée de l'héliotrope. Une sensation nostalgique sans appartenir au passé, romantique sans jamais devenir ordinaire.",
+          "Dans le dernier mouvement, la douceur pure de la poudre de riz rejoint la chaleur du musc, au plus près de la peau. Elle évoque une peau propre, une chemise blanche fraîchement repassée et la sensation impeccable d'un léger nuage de poudre.",
+          "Pas démonstrative, mais saisissante. Pas intense, mais indispensable. Une fragrance qui devient plus belle quand on s'en approche et dont on se souvient même après son départ.",
+          "La véritable élégance se ressent avant de se voir et se rappelle longtemps après."
+        ],
+        "family": "Poudré · Floral · Musqué",
+        "topNotes": "Fleur d'oranger · Poivre rose",
+        "heartNotes": "Iris · Lilas · Jacinthe · Glycine · Héliotrope",
+        "baseNotes": "Notes poudrées · Accord de riz · Musc"
       },
-      "ghent": {
-        "name": "Dauvéna Gand",
-        "address": "Veldstraat 55, 9000 Gand",
-        "hours": "Mar–Sam : 11h00–18h00",
-        "type": "Concept Store"
+      "f201": {
+        "name": "Latafa Yara",
+        "headline": "Un rêve rose sur la peau",
+        "shortDescription": "Crémeuse, joyeuse et captivante, avec des fruits tropicaux, des fleurs veloutées, de la vanille et du bois de santal.",
+        "story": [
+          "Crémeuse, joyeuse et irrésistiblement attirante. Certains parfums rappellent un souvenir ; d'autres font imaginer un bel instant qui n'a jamais existé. Celui-ci rassemble des fruits tropicaux chauffés par le soleil, des fleurs veloutées et une vanille toute douce dans un rêve rose.",
+          "L'éclat vif de la mandarine se fait d'abord sentir. L'élégance exotique de l'orchidée et la texture poudrée, légèrement amandée, de l'héliotrope enveloppent cette fraîcheur pour en faire une ouverture douce et féminine : sucrée sans être enfantine, vive tout en restant gracieuse.",
+          "Au cœur, les fruits tropicaux mûrs se mêlent à un accord gourmand crémeux. Évoquant un dessert fruité préparé sur une île ensoleillée, cet accord crée sur la peau une chaleur appétissante et envoûtante, ainsi qu'un bonheur qui s'adoucit à chaque respiration et attire davantage de près.",
+          "La vanille crémeuse rejoint ensuite un musc propre et proche de la peau. Le bois de santal donne une profondeur lisse à la composition et équilibre avec élégance son côté sucré, laissant un sillage chaud, doux et inoubliable qui donne envie d'être enlacé.",
+          "Ni tout à fait innocente, ni trop affirmée ; ni seulement douce, ni seulement florale. Elle est destinée aux femmes qui portent leur propre lumière et laissent joie et élégance partout où elles passent.",
+          "Certaines beautés ne se voient pas ; elles se ressentent comme un rêve rose qui fleurit sur la peau."
+        ],
+        "family": "Oriental · Vanillé · Gourmand fruité",
+        "topNotes": "Orchidée · Héliotrope · Mandarine",
+        "heartNotes": "Fruits tropicaux · Accord gourmand",
+        "baseNotes": "Vanille · Musc · Bois de santal"
       },
-      "amsterdam": {
-        "name": "Dauvéna Amsterdam",
-        "address": "Herenstraat 28, 1015 CA Amsterdam",
-        "hours": "Lun–Sam : 10h00–18h30",
-        "type": "Boutique Partenaire"
+      "c101": {
+        "name": "SAUVAGE",
+        "headline": "Au-delà des limites",
+        "shortDescription": "Une composition fraîche, aromatique et boisée de bergamote, poivres, lavande et sillage ambré minéral.",
+        "story": [
+          "Une fragrance pour les hommes qui refusent d'enfermer leur liberté dans les limites tracées par les autres. La force n'a pas toujours besoin de se montrer. Elle se ressent parfois dans un seul regard, une attitude calme et la trace inoubliable laissée derrière soi.",
+          "Inspirée par l'homme moderne qui choisit sa propre voie et se fait remarquer par sa seule présence, la fragrance s'ouvre sur la fraîcheur vive et énergique de la bergamote de Calabre. Le poivre noir donne aux agrumes un caractère fort et saisissant : frais, net et décidé.",
+          "Au cœur, la chaleur épicée des poivres du Sichuan et rose rencontre la propreté aromatique de la lavande. Le géranium et l'élémi apportent un éclat raffiné, tandis que le vétiver et le patchouli révèlent la force ferme et terreuse qui soutient la composition.",
+          "Enfin, la chaleur ambrée et minérale de l'ambroxan se précise sur la peau. Le cèdre sec et masculin et la profondeur résineuse du labdanum achèvent la fragrance sur une signature puissante, laissant un sillage aussi charismatique que frais, aussi intemporel que moderne.",
+          "Pour les hommes qui n'attendent pas d'approbation, ne quittent pas leur chemin et tirent leur force de leur allure plutôt que de leur voix.",
+          "Certains hommes ne se fondent pas dans la foule ; ils changent l'atmosphère partout où ils entrent."
+        ],
+        "family": "Aromatique · Frais · Boisé",
+        "topNotes": "Bergamote de Calabre · Poivre noir",
+        "heartNotes": "Poivre du Sichuan · Poivre rose · Lavande · Géranium · Vétiver · Patchouli · Élémi",
+        "baseNotes": "Ambroxan · Bois de cèdre · Labdanum"
+      },
+      "f167": {
+        "name": "YSL LIBRE",
+        "headline": "L'élégance des contrastes",
+        "shortDescription": "Une composition florale aromatique assurée qui équilibre lavande, fleur d'oranger, vanille, musc et bois.",
+        "story": [
+          "Une fragrance pour les femmes qui ne cachent pas leur force et ne renoncent pas à leur élégance. Une femme peut être à la fois audacieuse et gracieuse, distante et irrésistiblement attirante, car le véritable caractère ne tient jamais dans un seul moule.",
+          "Inspirée par les femmes qui portent en elles tous leurs contrastes en parfaite harmonie, la fragrance commence par l'éclat vif de la mandarine et l'énergie fraîche de la bergamote. Le cassis sombre donne une profondeur séduisante à l'ouverture, tandis que la lavande signe la composition d'un caractère assuré et inattendu.",
+          "La fleur d'oranger chaude et lumineuse s'élève au cœur. L'élégance sensuelle du jasmin rencontre la fraîcheur aromatique de la lavande pour établir un équilibre saisissant entre féminité et force, révélant la détermination sous la douceur et le courage au sein de l'élégance.",
+          "La vanille de Madagascar enveloppe ensuite la peau de sa chaleur crémeuse. Le musc au plus près de la peau rejoint la force du cèdre et la profondeur lumineuse de l'ambre gris, laissant une signature sophistiquée qui transforme l'atmosphère et se révèle difficile à oublier.",
+          "Pour les femmes qui n'expliquent pas qui elles sont, qui savent ce qu'elles veulent et façonnent leur vie selon leurs propres choix plutôt que les attentes des autres.",
+          "La véritable élégance ne consiste pas à suivre les règles, mais à créer sa propre allure."
+        ],
+        "family": "Floral · Aromatique · Vanillé",
+        "topNotes": "Lavande · Mandarine · Cassis · Bergamote",
+        "heartNotes": "Fleur d'oranger · Jasmin · Lavande",
+        "baseNotes": "Vanille de Madagascar · Musc · Bois de cèdre · Ambre gris"
+      },
+      "okyanus": {
+        "name": "Okyanus",
+        "headline": "Une atmosphère claire inspirée de l'océan",
+        "shortDescription": "Une senteur fraîche pour la maison, inspirée du large et de la sensation propre de l'air marin.",
+        "story": [
+          "Okyanus apporte à la pièce un caractère vif et aérien. Son orientation inspirée de l'océan convient aux espaces où l'on recherche une atmosphère claire, fraîche et renouvelée."
+        ]
+      },
+      "lavanta": {
+        "name": "Lavanta",
+        "headline": "Une atmosphère paisible de lavande",
+        "shortDescription": "Une senteur délicatement aromatique pour la maison, construite autour du caractère familier de la lavande.",
+        "story": [
+          "Lavanta installe dans la pièce une présence calme et doucement aromatique. Son inspiration lavande accompagne les coins paisibles, les rituels du soir et les espaces où une atmosphère plus douce trouve naturellement sa place."
+        ]
+      },
+      "sandal": {
+        "name": "Sandal Ağacı",
+        "headline": "Une atmosphère chaleureuse inspirée du bois",
+        "shortDescription": "Une senteur chaleureuse pour la maison, inspirée du caractère lisse et ancré du bois de santal.",
+        "story": [
+          "Sandal Ağacı apporte à la pièce une ambiance chaleureuse et posée. Son inspiration bois de santal convient aux espaces de vie accueillants et aux moments qui appellent une atmosphère sereine."
+        ]
+      },
+      "mango": {
+        "name": "Mango",
+        "headline": "Une atmosphère lumineuse inspirée des fruits",
+        "shortDescription": "Une senteur joyeuse pour la maison, inspirée du caractère juteux et ensoleillé de la mangue mûre.",
+        "story": [
+          "Mango donne à la pièce une énergie lumineuse et décontractée. Son inspiration fruitée apporte une touche joyeuse aux espaces du quotidien."
+        ]
       }
     }
   }

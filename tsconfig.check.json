@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "plugins": [],
+    "types": [],
+    "lib": ["es2022"]
+  },
+  "include": [
+    "types/index.ts",
+    "data/products.ts"
+  ],
+  "exclude": ["node_modules"]
+}

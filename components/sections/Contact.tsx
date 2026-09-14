@@ -1,228 +1,261 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { products } from "@/data/products";
+import { INQUIRY_TYPE_KEYS, type InquiryType } from "@/types";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
-import NavyCard from "@/components/ui/NavyCard";
-import Button3D from "@/components/ui/Button3D";
-import { SALES_OPTION_KEYS } from "@/types";
 
-export default function Contact() {
-  const t = useTranslations("contact");
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-  const [selectedOption, setSelectedOption] = useState("");
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+type Status = "idle" | "sending" | "success" | "error";
 
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setDropdownOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
+interface ContactProps {
+  initialInquiryType?: InquiryType;
+  initialProductId?: string;
+}
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+export default function Contact({
+  initialInquiryType = "general",
+  initialProductId = "",
+}: ContactProps) {
+  const t = useTranslations();
+  const locale = useLocale();
+  const [status, setStatus] = useState<Status>("idle");
+  const [inquiryType, setInquiryType] =
+    useState<InquiryType>(initialInquiryType);
+  const [productId, setProductId] = useState(initialProductId);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setStatus("sending");
 
-    const formData = new FormData(e.currentTarget);
-    const data = {
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
       name: formData.get("name"),
       email: formData.get("email"),
-      salesOption: selectedOption,
+      inquiryType,
+      productId: productId || undefined,
+      locale,
       message: formData.get("message"),
+      website: formData.get("website"),
     };
 
     try {
-      const res = await fetch("/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
 
-      if (res.ok) {
-        setStatus("success");
-        (e.target as HTMLFormElement).reset();
-        setSelectedOption("");
-      } else {
-        setStatus("error");
-      }
+      if (!response.ok) throw new Error("Unable to send inquiry");
+
+      form.reset();
+      setInquiryType("general");
+      setProductId("");
+      setStatus("success");
     } catch {
       setStatus("error");
     }
   };
 
-  const inputBase =
-    "w-full bg-white/[0.05] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder:text-white/25 outline-none focus:border-white/30 focus:bg-white/[0.08] transition-all duration-300";
+  const fieldClass =
+    "mt-2 w-full rounded-2xl border border-white/12 bg-white/[0.055] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-white/28 hover:border-white/20 focus:border-white/45 focus:ring-2 focus:ring-white/10";
+  const requiredMark = (
+    <span className="ml-1 text-peach" aria-hidden="true">
+      *
+    </span>
+  );
 
   return (
-    <section id="contact" className="py-24 md:py-32 px-6 md:px-8">
-      <div className="max-w-2xl mx-auto">
-        <RevealOnScroll delay={0.1}>
-          <NavyCard className="p-8 md:p-10">
-            {/* Header */}
-            <div className="text-center mb-8">
-              <h2 className="font-serif text-2xl md:text-3xl text-white">
-                {t("title")}
-              </h2>
-              <p className="mt-2 text-sm text-white/40">{t("subtitle")}</p>
+    <section id="contact" className="section-shell scroll-mt-24 bg-canvas">
+      <div className="mx-auto max-w-7xl">
+        <RevealOnScroll>
+          <header className="grid gap-8 border-b border-ink/10 pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div>
+              <p className="eyebrow">{t("contact.eyebrow")}</p>
+              <h1 className="mt-5 max-w-[12ch] font-serif text-[clamp(3.5rem,7vw,6.8rem)] leading-[0.92] tracking-[-0.05em] text-ink">
+                {t("contact.title")}
+              </h1>
             </div>
+            <div className="max-w-2xl lg:justify-self-end">
+              <p className="text-base leading-8 text-ink/62 sm:text-lg">
+                {t("contact.subtitle")}
+              </p>
+              <p className="mt-4 text-xs tracking-wide text-ink/42">
+                {t("contact.requiredHint")}
+              </p>
+            </div>
+          </header>
+        </RevealOnScroll>
 
-            {status === "success" ? (
-              <div className="text-center py-12">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 mb-6">
-                  <svg className="w-8 h-8 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                </div>
-                <p className="text-white/80 font-serif text-lg">
-                  {t("success")}
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                {/* Name + Email row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="relative">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 pointer-events-none">
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
-                      </svg>
+        <RevealOnScroll delay={0.1}>
+          <div className="mt-12 grid overflow-hidden rounded-[2rem] border border-ink/10 shadow-[0_28px_80px_rgba(32,40,42,0.09)] lg:grid-cols-[0.72fr_1.28fr]">
+            <aside className="bg-cream p-7 sm:p-10 lg:p-12">
+              <p className="eyebrow">{t("contact.guideEyebrow")}</p>
+              <h2 className="mt-5 max-w-sm font-serif text-3xl leading-tight tracking-[-0.03em] text-ink sm:text-4xl">
+                {t("contact.guideTitle")}
+              </h2>
+              <ol className="mt-9 divide-y divide-ink/10 border-y border-ink/10">
+                {(["general", "product", "wholesale"] as const).map((type, index) => (
+                  <li key={type} className="grid grid-cols-[2.2rem_1fr] gap-3 py-5">
+                    <span className="pt-1 text-[0.62rem] text-ink/32">0{index + 1}</span>
+                    <div>
+                      <h3 className="font-serif text-xl text-ink">
+                        {t(`contact.inquiryTypes.${type}`)}
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-ink/55">
+                        {t(`contact.inquiryHints.${type}`)}
+                      </p>
                     </div>
-                    <input
-                      name="name"
-                      type="text"
-                      required
-                      maxLength={100}
-                      placeholder={t("name")}
-                      className={`${inputBase} pl-10`}
-                    />
-                  </div>
-                  <div className="relative">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 pointer-events-none">
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                      </svg>
-                    </div>
-                    <input
-                      name="email"
-                      type="email"
-                      required
-                      maxLength={254}
-                      placeholder={t("email")}
-                      className={`${inputBase} pl-10`}
-                    />
-                  </div>
-                </div>
+                  </li>
+                ))}
+              </ol>
+            </aside>
 
-                {/* Custom Inquiry Type Dropdown */}
-                <div className="relative" ref={dropdownRef}>
-                  <input type="hidden" name="salesOption" value={selectedOption} required />
+            <div className="relative overflow-hidden bg-ink p-7 text-white sm:p-10 lg:p-12">
+              <div className="contact-glow" aria-hidden="true" />
+              {status === "success" ? (
+                <div className="relative flex min-h-[480px] flex-col items-start justify-center" role="status" aria-live="polite">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-ink">
+                    ✓
+                  </span>
+                  <p className="mt-7 max-w-lg font-serif text-3xl leading-snug">
+                    {t("contact.success")}
+                  </p>
                   <button
                     type="button"
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className={`${inputBase} pl-10 text-left cursor-pointer flex items-center justify-between`}
+                    onClick={() => setStatus("idle")}
+                    className="mt-8 text-xs font-semibold tracking-[0.18em] uppercase text-white/60 underline decoration-white/25 underline-offset-8 hover:text-white"
                   >
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 pointer-events-none">
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                      </svg>
-                    </div>
-                    <span className={selectedOption ? "text-white" : "text-white/25"}>
-                      {selectedOption
-                        ? t(`salesOptions.${selectedOption}`)
-                        : t("salesOption")}
-                    </span>
-                    <svg
-                      className={`w-4 h-4 text-white/30 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
+                    {t("contact.sendAnother")}
                   </button>
+                </div>
+              ) : (
+                <form
+                  onSubmit={handleSubmit}
+                  className="relative grid gap-5"
+                  aria-describedby="contact-privacy"
+                >
+                  <div className="mb-2">
+                    <p className="eyebrow !text-white/45">{t("contact.formEyebrow")}</p>
+                    <h2 className="mt-4 font-serif text-3xl tracking-[-0.03em] sm:text-4xl">
+                      {t("contact.formTitle")}
+                    </h2>
+                  </div>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <label htmlFor="contact-name" className="text-xs font-medium tracking-wide text-white/65">
+                      {t("contact.name")}{requiredMark}
+                      <input
+                        id="contact-name"
+                        name="name"
+                        type="text"
+                        required
+                        maxLength={100}
+                        autoComplete="name"
+                        className={fieldClass}
+                      />
+                    </label>
+                    <label htmlFor="contact-email" className="text-xs font-medium tracking-wide text-white/65">
+                      {t("contact.email")}{requiredMark}
+                      <input
+                        id="contact-email"
+                        name="email"
+                        type="email"
+                        required
+                        maxLength={254}
+                        autoComplete="email"
+                        className={fieldClass}
+                      />
+                    </label>
+                  </div>
 
-                  {dropdownOpen && (
-                    <div
-                      className="absolute z-20 mt-2 w-full rounded-xl overflow-hidden"
-                      style={{
-                        background: "linear-gradient(180deg, #243558 0%, #1a2a45 100%)",
-                        border: "1px solid rgba(255,255,255,0.12)",
-                        boxShadow: "0 12px 36px rgba(0,0,0,0.40)",
-                      }}
-                    >
-                      {SALES_OPTION_KEYS.map((key) => (
-                        <button
-                          key={key}
-                          type="button"
-                          onClick={() => {
-                            setSelectedOption(key);
-                            setDropdownOpen(false);
-                          }}
-                          className={`w-full text-left px-4 py-3 text-sm transition-colors duration-150 cursor-pointer flex items-center gap-3 ${
-                            selectedOption === key
-                              ? "bg-white/10 text-white"
-                              : "text-white/60 hover:bg-white/[0.06] hover:text-white"
-                          }`}
-                        >
-                          {selectedOption === key && (
-                            <svg className="w-3.5 h-3.5 text-white/60 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                            </svg>
-                          )}
-                          <span className={selectedOption === key ? "" : "pl-[22px]"}>
-                            {t(`salesOptions.${key}`)}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <label htmlFor="contact-inquiry-type" className="text-xs font-medium tracking-wide text-white/65">
+                      {t("contact.inquiryType")}{requiredMark}
+                      <select
+                        id="contact-inquiry-type"
+                        name="inquiryType"
+                        required
+                        value={inquiryType}
+                        onChange={(event) =>
+                          setInquiryType(event.target.value as InquiryType)
+                        }
+                        className={fieldClass}
+                      >
+                        {INQUIRY_TYPE_KEYS.map((key) => (
+                          <option key={key} value={key} className="text-ink">
+                            {t(`contact.inquiryTypes.${key}`)}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <label htmlFor="contact-product" className="text-xs font-medium tracking-wide text-white/65">
+                      {t("contact.product")}
+                      <select
+                        id="contact-product"
+                        name="productId"
+                        value={productId}
+                        onChange={(event) => {
+                          setProductId(event.target.value);
+                          if (event.target.value) setInquiryType("product");
+                        }}
+                        className={fieldClass}
+                      >
+                        <option value="" className="text-ink">
+                          {t("contact.noProduct")}
+                        </option>
+                        {products.map((product) => (
+                          <option key={product.id} value={product.id} className="text-ink">
+                            {product.code ? `${product.code} · ` : ""}
+                            {t(`products.items.${product.id}.name`)}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  </div>
+
+                  <label htmlFor="contact-message" className="text-xs font-medium tracking-wide text-white/65">
+                    {t("contact.message")}{requiredMark}
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      required
+                      rows={5}
+                      maxLength={2000}
+                      className={`${fieldClass} resize-y`}
+                    />
+                  </label>
+
+                  <div className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                    <label>
+                      Website
+                      <input name="website" type="text" tabIndex={-1} autoComplete="off" />
+                    </label>
+                  </div>
+
+                  {status === "error" && (
+                    <p className="rounded-xl bg-red-300/10 px-4 py-3 text-sm text-red-100" role="alert" aria-live="assertive">
+                      {t("contact.error")}
+                    </p>
                   )}
-                </div>
 
-                {/* Message */}
-                <div className="relative">
-                  <div className="absolute left-4 top-4 text-white/20 pointer-events-none">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
-                    </svg>
+                  <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
+                    <p id="contact-privacy" className="max-w-xs text-xs leading-5 text-white/35">
+                      {t("contact.privacy")}
+                    </p>
+                    <button
+                      type="submit"
+                      disabled={status === "sending"}
+                      aria-busy={status === "sending"}
+                      className="button-light disabled:cursor-not-allowed disabled:opacity-55"
+                    >
+                      {status === "sending" ? t("contact.sending") : t("contact.send")}
+                    </button>
                   </div>
-                  <textarea
-                    name="message"
-                    required
-                    rows={5}
-                    maxLength={2000}
-                    placeholder={t("message")}
-                    className={`${inputBase} pl-10 resize-none`}
-                  />
-                </div>
-
-                {status === "error" && (
-                  <div className="flex items-center gap-2 text-red-400/80 text-sm bg-red-400/10 rounded-lg px-4 py-2.5">
-                    <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                    </svg>
-                    {t("error")}
-                  </div>
-                )}
-
-                <div className="text-center mt-2">
-                  <Button3D
-                    variant="white"
-                    type="submit"
-                    disabled={status === "sending"}
-                    className="w-full sm:w-auto px-10 py-3.5"
-                  >
-                    {status === "sending" ? "..." : t("send")}
-                  </Button3D>
-                </div>
-              </form>
-            )}
-          </NavyCard>
+                </form>
+              )}
+            </div>
+          </div>
         </RevealOnScroll>
       </div>
     </section>
