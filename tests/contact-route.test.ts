@@ -57,8 +57,8 @@ describe("contact inquiry route", () => {
 
     expect(response.status).toBe(200);
     expect(sendMail).toHaveBeenCalledOnce();
-    expect(sendMail.mock.calls[0][0].subject).toContain("Vanille Harmony");
-    expect(sendMail.mock.calls[0][0].text).toContain("W-301 · Vanille Harmony");
+    expect(sendMail.mock.calls[0][0].subject).toBe("[Dauvena Cosmetics] product inquiry — W-301");
+    expect(sendMail.mock.calls[0][0].text.split("\n")).toContain("Product: W-301");
   });
 
   it("returns an error when SMTP delivery fails", async () => {

@@ -206,7 +206,6 @@ export default function Contact({
                         </option>
                         {products.map((product) => (
                           <option key={product.id} value={product.id} className="text-ink">
-                            {product.code ? `${product.code} · ` : ""}
                             {t(`products.items.${product.id}.name`)}
                           </option>
                         ))}

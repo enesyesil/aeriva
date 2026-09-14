@@ -4,7 +4,7 @@ export const products: Product[] = [
   {
     id: "w301",
     translationKey: "w301",
-    slug: "w-301-vanille-harmony",
+    slug: "w-301",
     line: "estila",
     kind: "eau-de-parfum",
     code: "W-301",
@@ -15,7 +15,7 @@ export const products: Product[] = [
   {
     id: "g302",
     translationKey: "g302",
-    slug: "g302-velvet-storm",
+    slug: "g302",
     line: "estila",
     kind: "eau-de-parfum",
     code: "G302",
@@ -29,7 +29,7 @@ export const products: Product[] = [
   {
     id: "f201",
     translationKey: "f201",
-    slug: "f201-latafa-yara",
+    slug: "f201",
     line: "estila",
     kind: "eau-de-parfum",
     code: "F201",
@@ -40,7 +40,7 @@ export const products: Product[] = [
   {
     id: "c101",
     translationKey: "c101",
-    slug: "c101-sauvage",
+    slug: "c101",
     line: "estila",
     kind: "eau-de-parfum",
     code: "C101",
@@ -51,7 +51,7 @@ export const products: Product[] = [
   {
     id: "f167",
     translationKey: "f167",
-    slug: "f167-ysl-libre",
+    slug: "f167",
     line: "estila",
     kind: "eau-de-parfum",
     code: "F167",

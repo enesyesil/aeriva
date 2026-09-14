@@ -94,11 +94,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <span className="text-[0.65rem] font-semibold tracking-[0.24em] uppercase text-white/52">
                   {isPerfume ? "Estila Exclusive" : "Mavigöl"}
                 </span>
-                {product.code && (
-                  <span className="rounded-full border border-white/20 px-3 py-1 text-[0.6rem] font-semibold tracking-[0.18em] uppercase text-white/70">
-                    {product.code}
-                  </span>
-                )}
               </div>
 
               <div className="relative my-auto py-10">

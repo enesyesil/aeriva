@@ -187,15 +187,15 @@
   "products": {
     "items": {
       "w301": {
-        "name": "Vanille Harmony",
+        "name": "W-301",
         "headline": "Quand la douceur rencontre l'élégance",
         "shortDescription": "Une composition mixte enveloppante où la vanille crémeuse, les fleurs lumineuses et l'ambre doré se rencontrent avec mesure.",
         "story": [
-          "Certains parfums restent simplement sur la peau ; d'autres transforment l'instant que l'on vit. Vanille Harmony réinterprète la douceur familière de la vanille à travers l'élégance des fleurs et la chaleur de l'ambre, dans une histoire envoûtante qui touche les sens.",
+          "Certains parfums restent simplement sur la peau ; d'autres transforment l'instant que l'on vit. Cette fragrance réinterprète la douceur familière de la vanille à travers l'élégance des fleurs et la chaleur de l'ambre, dans une histoire envoûtante qui touche les sens.",
           "La première impression révèle la texture veloutée d'une orchidée exotique. Le caractère lumineux et gracieux du jasmin rejoint la chaleur crémeuse de la vanille pour créer sur la peau une ouverture douce, mais saisissante.",
           "Au cœur, la douceur attirante du sucre rencontre les nuances chaudes et légèrement amandées de la fève tonka. Cette alliance riche dépasse l'interprétation classique de la vanille et donne à la fragrance profondeur, sophistication et pouvoir d'attraction.",
           "Dans le dernier mouvement, la chaleur dorée de l'ambre se mêle au mystère du patchouli et à un musc proche de la peau. Il reste une signature élégante, remarquée sans jamais hausser le ton, plus belle à mesure que l'on s'en approche et durable dans la mémoire.",
-          "Vanille Harmony s'adresse à celles et ceux qui ne cachent pas leur douceur, mais la portent avec élégance."
+          "Cette fragrance s'adresse à celles et ceux qui ne cachent pas leur douceur, mais la portent avec élégance."
         ],
         "family": "Oriental · Gourmand",
         "topNotes": "Orchidée · Vanille · Jasmin",
@@ -203,7 +203,7 @@
         "baseNotes": "Ambre · Patchouli · Musc"
       },
       "g302": {
-        "name": "Velvet Storm",
+        "name": "G302",
         "headline": "La trace que l'élégance laisse sur la peau",
         "shortDescription": "Silencieuse, poudrée et mémorable : une composition florale soyeuse autour de l'iris, de l'héliotrope et d'un musc propre.",
         "story": [
@@ -220,7 +220,7 @@
         "baseNotes": "Notes poudrées · Accord de riz · Musc"
       },
       "f201": {
-        "name": "Latafa Yara",
+        "name": "F201",
         "headline": "Un rêve rose sur la peau",
         "shortDescription": "Crémeuse, joyeuse et captivante, avec des fruits tropicaux, des fleurs veloutées, de la vanille et du bois de santal.",
         "story": [
@@ -237,7 +237,7 @@
         "baseNotes": "Vanille · Musc · Bois de santal"
       },
       "c101": {
-        "name": "SAUVAGE",
+        "name": "C101",
         "headline": "Au-delà des limites",
         "shortDescription": "Une composition fraîche, aromatique et boisée de bergamote, poivres, lavande et sillage ambré minéral.",
         "story": [
@@ -254,7 +254,7 @@
         "baseNotes": "Ambroxan · Bois de cèdre · Labdanum"
       },
       "f167": {
-        "name": "YSL LIBRE",
+        "name": "F167",
         "headline": "L'élégance des contrastes",
         "shortDescription": "Une composition florale aromatique assurée qui équilibre lavande, fleur d'oranger, vanille, musc et bois.",
         "story": [

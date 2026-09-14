@@ -11,11 +11,11 @@ const messages = { en, fr, nl };
 
 describe("product catalogue", () => {
   const expectedSlugs = [
-    "w-301-vanille-harmony",
-    "g302-velvet-storm",
-    "f201-latafa-yara",
-    "c101-sauvage",
-    "f167-ysl-libre",
+    "w-301",
+    "g302",
+    "f201",
+    "c101",
+    "f167",
     "mavigol-okyanus",
     "mavigol-lavanta",
     "mavigol-sandal-agaci",

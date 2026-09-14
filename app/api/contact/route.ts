@@ -87,7 +87,7 @@ export async function POST(request: Request) {
       ? messages.products.items[product.id as keyof typeof messages.products.items]
       : undefined;
     const productLabel = product && productContent
-      ? `${product.code ? `${product.code} · ` : ""}${productContent.name}`
+      ? productContent.name
       : "No specific product";
     const lineLabel = product
       ? product.line === "estila"

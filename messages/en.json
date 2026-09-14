@@ -187,15 +187,15 @@
   "products": {
     "items": {
       "w301": {
-        "name": "Vanille Harmony",
+        "name": "W-301",
         "headline": "Where sweetness meets elegance",
         "shortDescription": "An enveloping unisex composition where creamy vanilla, luminous flowers and golden amber meet with measured elegance.",
         "story": [
-          "Some fragrances simply remain on your skin; others change the moment you are in. Vanille Harmony reimagines vanilla's familiar sweetness through the elegance of flowers and the warmth of amber, creating an entrancing story that reaches the senses.",
+          "Some fragrances simply remain on your skin; others change the moment you are in. This fragrance reimagines vanilla's familiar sweetness through the elegance of flowers and the warmth of amber, creating an entrancing story that reaches the senses.",
           "The first impression is the velvety texture of an exotic orchid. Jasmine's bright, graceful character joins the creamy warmth of vanilla to create an opening that feels soft yet compelling on the skin.",
           "At the heart, the inviting sweetness of sugar meets the warm, almond-like nuances of tonka bean. This rich pairing takes the fragrance beyond an ordinary vanilla interpretation and gives it depth, sophistication and an irresistible character.",
           "Golden amber emerges in the final movement with mysterious patchouli and skin-close musk. What remains is an elegant signature that is noticed without shouting, grows more beautiful at close range and leaves a mark on the memory.",
-          "Vanille Harmony is for those who do not hide their sweetness, but carry it with elegance."
+          "This fragrance is for those who do not hide their sweetness, but carry it with elegance."
         ],
         "family": "Oriental · Gourmand",
         "topNotes": "Orchid · Vanilla · Jasmine",
@@ -203,7 +203,7 @@
         "baseNotes": "Amber · Patchouli · Musk"
       },
       "g302": {
-        "name": "Velvet Storm",
+        "name": "G302",
         "headline": "The trace elegance leaves on skin",
         "shortDescription": "Quiet, powder-soft and memorable: a silky floral composition with iris, heliotrope and clean musk.",
         "story": [
@@ -220,7 +220,7 @@
         "baseNotes": "Powdery notes · Rice accord · Musk"
       },
       "f201": {
-        "name": "Latafa Yara",
+        "name": "F201",
         "headline": "A pink dream on the skin",
         "shortDescription": "Creamy, joyful and captivating, with tropical fruits, velvety flowers, vanilla and sandalwood.",
         "story": [
@@ -237,7 +237,7 @@
         "baseNotes": "Vanilla · Musk · Sandalwood"
       },
       "c101": {
-        "name": "SAUVAGE",
+        "name": "C101",
         "headline": "Beyond boundaries",
         "shortDescription": "A fresh, aromatic and woody composition with bergamot, pepper, lavender and a mineral amber trail.",
         "story": [
@@ -254,7 +254,7 @@
         "baseNotes": "Ambroxan · Cedarwood · Labdanum"
       },
       "f167": {
-        "name": "YSL LIBRE",
+        "name": "F167",
         "headline": "The elegance of contrasts",
         "shortDescription": "A confident floral-aromatic composition balancing lavender, orange blossom, vanilla, musk and woods.",
         "story": [

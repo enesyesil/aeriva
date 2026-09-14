@@ -36,11 +36,6 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="flex min-w-0 flex-col p-5 sm:p-6">
           <div className="flex flex-wrap items-center gap-2 text-[0.58rem] font-semibold tracking-[0.18em] uppercase text-ink/48">
             <span>{isPerfume ? "Estila Exclusive" : "Mavigöl"}</span>
-            {product.code && (
-              <span className="rounded-full border border-ink/12 px-2.5 py-1 text-ink/65">
-                {product.code}
-              </span>
-            )}
           </div>
 
           <h3 className="mt-4 font-serif text-[1.65rem] leading-[1.02] tracking-[-0.03em] text-ink sm:text-[1.9rem]">

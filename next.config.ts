@@ -8,6 +8,19 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
   },
+  async redirects() {
+    return [
+      ["w-301-vanille-harmony", "w-301"],
+      ["g302-velvet-storm", "g302"],
+      ["f201-latafa-yara", "f201"],
+      ["c101-sauvage", "c101"],
+      ["f167-ysl-libre", "f167"],
+    ].map(([previousSlug, slug]) => ({
+      source: `/:locale(en|fr|nl)/products/${previousSlug}`,
+      destination: `/:locale/products/${slug}`,
+      permanent: true,
+    }));
+  },
   async headers() {
     return [
       {
