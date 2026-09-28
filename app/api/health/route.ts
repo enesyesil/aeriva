@@ -7,6 +7,7 @@ export function GET() {
     {
       status: "ok",
       service: "dauvena-cosmetics",
+      revision: process.env.APP_REVISION || "unknown",
       timestamp: new Date().toISOString(),
     },
     {
