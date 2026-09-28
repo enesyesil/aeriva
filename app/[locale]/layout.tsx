@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { routing } from "@/i18n/routing";
+import { createPageMetadata } from "@/lib/metadata";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -23,20 +24,18 @@ export async function generateMetadata({
 
   const t = await getTranslations({ locale, namespace: "meta" });
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
-    title: t("title"),
-    description: t("description"),
-    alternates: {
-      canonical: `/${locale}`,
-      languages: Object.fromEntries(
-        routing.locales.map((language) => [language, `/${language}`]),
-      ),
-    },
-    openGraph: {
+    ...createPageMetadata({
+      locale,
       title: t("title"),
       description: t("description"),
-      type: "website",
-      siteName: "Dauvena Cosmetics",
+    }),
+    manifest: "/site.webmanifest",
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
+        { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     },
   };
 }

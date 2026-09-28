@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Contact from "@/components/sections/Contact";
 import { products } from "@/data/products";
-import { routing } from "@/i18n/routing";
+import { createPageMetadata } from "@/lib/metadata";
 import { INQUIRY_TYPE_KEYS, type InquiryType } from "@/types";
 
 interface ContactPageProps {
@@ -17,16 +17,12 @@ export async function generateMetadata({ params }: ContactPageProps): Promise<Me
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contactPage" });
 
-  return {
+  return createPageMetadata({
+    locale,
+    path: "/contact",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: `/${locale}/contact`,
-      languages: Object.fromEntries(
-        routing.locales.map((language) => [language, `/${language}/contact`]),
-      ),
-    },
-  };
+  });
 }
 
 export default async function ContactPage({ searchParams }: ContactPageProps) {

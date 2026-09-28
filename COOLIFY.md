@@ -10,7 +10,7 @@ Use the **Docker Image** application serving `dauvena.com`:
 - Tag: `latest` (remove any pinned SHA or digest)
 - Exposed port: `3000`
 - Health check path: `/api/health`
-- Runtime variable: `NEXT_PUBLIC_SITE_URL=https://dauvena.com`
+- Runtime variable: `SITE_URL=https://dauvena.com` (legacy `NEXT_PUBLIC_SITE_URL` is also accepted)
 
 Coolify pulls the published image; it does not need a Git source or to build this repository. The image is currently public. If you make it private, configure registry authentication on the deployment server with permission to read the package.
 

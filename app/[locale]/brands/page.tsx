@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
-import { routing } from "@/i18n/routing";
+import { createPageMetadata } from "@/lib/metadata";
 
 interface BrandsPageProps {
   params: Promise<{ locale: string }>;
@@ -13,16 +13,12 @@ export async function generateMetadata({ params }: BrandsPageProps): Promise<Met
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "brandsPage" });
 
-  return {
+  return createPageMetadata({
+    locale,
+    path: "/brands",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: `/${locale}/brands`,
-      languages: Object.fromEntries(
-        routing.locales.map((language) => [language, `/${language}/brands`]),
-      ),
-    },
-  };
+  });
 }
 
 export default async function BrandsPage({ params }: BrandsPageProps) {

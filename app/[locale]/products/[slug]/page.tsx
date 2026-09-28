@@ -8,6 +8,7 @@ import ProductCard from "@/components/ui/ProductCard";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import { getProductBySlug, getProductsByLine, products } from "@/data/products";
 import { routing } from "@/i18n/routing";
+import { createPageMetadata } from "@/lib/metadata";
 
 interface ProductPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -27,28 +28,13 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const t = await getTranslations({ locale, namespace: "products" });
   const name = t(`items.${product.id}.name`);
   const description = t(`items.${product.id}.shortDescription`);
-  const path = `/${locale}/products/${product.slug}`;
-
-  return {
+  return createPageMetadata({
+    locale,
+    path: `/products/${product.slug}`,
+    productSlug: product.slug,
     title: `${name} | Dauvena Cosmetics`,
     description,
-    alternates: {
-      canonical: path,
-      languages: Object.fromEntries(
-        routing.locales.map((language) => [
-          language,
-          `/${language}/products/${product.slug}`,
-        ]),
-      ),
-    },
-    openGraph: {
-      title: `${name} | Dauvena Cosmetics`,
-      description,
-      type: "website",
-      siteName: "Dauvena Cosmetics",
-      images: [{ url: product.images[0], alt: name }],
-    },
-  };
+  });
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
