@@ -63,10 +63,10 @@ export default async function LocaleLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans bg-canvas text-ink antialiased">
+      <body className="flex min-h-dvh flex-col font-sans bg-canvas text-ink antialiased">
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          <main>{children}</main>
+          <main className="flex-1">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

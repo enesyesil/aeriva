@@ -17,7 +17,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-ink px-5 pb-8 pt-16 text-white sm:px-8">
+    <footer className="shrink-0 bg-ink px-5 pb-8 pt-16 text-white sm:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-x-8 gap-y-10 pb-14 md:grid-cols-[1.3fr_0.7fr_0.7fr] lg:gap-x-12">
           <div className="min-w-0">
