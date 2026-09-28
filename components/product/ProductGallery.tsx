@@ -23,7 +23,7 @@ export default function ProductGallery({
 
   return (
     <div
-      className="product-gallery"
+      className="product-gallery mx-auto w-full min-w-0 max-w-xl lg:max-w-none"
       style={{ "--product-accent": accent } as CSSProperties}
     >
       <div
@@ -60,7 +60,7 @@ export default function ProductGallery({
       </div>
 
       {images.length > 1 && (
-        <div className="mt-4 grid grid-cols-3 gap-3" aria-label={`${productName} gallery`}>
+        <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3" role="group" aria-label={productName}>
           {images.map((image, index) => (
             <button
               key={image}
@@ -68,7 +68,7 @@ export default function ProductGallery({
               onClick={() => setActiveImage(index)}
               aria-label={t("imageLabel", { number: index + 1, total: images.length })}
               aria-pressed={activeImage === index}
-              className={`relative aspect-[4/3] overflow-hidden rounded-xl border-2 transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay ${
+              className={`relative aspect-[4/3] min-h-11 touch-manipulation overflow-hidden rounded-xl border-2 transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 ${
                 activeImage === index ? "opacity-100" : "border-transparent opacity-55 hover:opacity-100"
               }`}
               style={activeImage === index ? { borderColor: accent } : undefined}

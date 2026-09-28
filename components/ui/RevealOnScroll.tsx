@@ -20,7 +20,7 @@ export default function RevealOnScroll({
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: reduceMotion ? 0 : 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
+      className={`min-w-0 ${className}`}
     >
       {children}
     </motion.div>

@@ -72,9 +72,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <article className="mx-auto max-w-7xl px-5 sm:px-8">
         <Link
           href={`/${locale}/products`}
-          className="inline-flex items-center gap-2 text-[0.67rem] font-semibold tracking-[0.18em] uppercase text-ink/55 transition hover:text-ink"
+          className="inline-flex min-h-11 items-center gap-2 text-[0.67rem] font-semibold tracking-[0.18em] uppercase text-ink/55 transition hover:text-ink"
         >
-          <span aria-hidden="true">←</span>
+          <span className="shrink-0" aria-hidden="true">←</span>
           {t("productPage.back")}
         </Link>
 
@@ -82,10 +82,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <span className="product-atmosphere__orb product-atmosphere__orb--one" aria-hidden="true" />
           <span className="product-atmosphere__orb product-atmosphere__orb--two" aria-hidden="true" />
 
-          <div className="relative grid gap-4 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="relative grid gap-4 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]">
             <ProductGallery images={product.images} productName={name} accent={product.accent} />
 
-            <div className="product-identity relative flex min-h-[36rem] flex-col overflow-hidden rounded-[1.7rem] bg-ink p-7 text-white sm:p-10 lg:p-12">
+            <div className="product-identity relative flex min-w-0 flex-col overflow-hidden rounded-[1.7rem] bg-ink p-5 text-white sm:min-h-[36rem] sm:p-8 xl:p-12">
               <span className="product-identity__code" aria-hidden="true">
                 {product.code ?? String(product.sizeMl)}
               </span>
@@ -96,9 +96,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </span>
               </div>
 
-              <div className="relative my-auto py-10">
+              <div className="relative my-auto py-8 sm:py-10">
                 <div className="mb-7 h-px w-16 bg-[var(--product-accent)]" />
-                <h1 className="max-w-[9ch] font-serif text-[clamp(3.6rem,6.2vw,6.8rem)] leading-[0.82] tracking-[-0.06em] text-white">
+                <h1 className="max-w-[9ch] break-words font-serif text-[clamp(3rem,6.2vw,6.8rem)] leading-[0.9] tracking-[-0.06em] text-white sm:text-[clamp(3.6rem,6.2vw,6.8rem)]">
                   {name}
                 </h1>
                 <p className="mt-7 max-w-md font-serif text-2xl italic leading-snug text-white/72 sm:text-3xl">
@@ -110,8 +110,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
 
               <div className="relative">
-                <dl className="grid grid-cols-2 gap-x-5 border-t border-white/12 pt-6">
-                  <div>
+                <dl className="grid grid-cols-2 gap-x-3 border-t border-white/12 pt-6 sm:gap-x-5">
+                  <div className="min-w-0 break-words">
                     <dt className="text-[0.58rem] font-semibold tracking-[0.18em] uppercase text-white/38">
                       {t("productPage.audience")}
                     </dt>
@@ -119,7 +119,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                       {t(`productPage.audiences.${product.audience}`)}
                     </dd>
                   </div>
-                  <div>
+                  <div className="min-w-0 break-words">
                     <dt className="text-[0.58rem] font-semibold tracking-[0.18em] uppercase text-white/38">
                       {isPerfume ? t("catalogue.perfumeLabel") : t("catalogue.diffuserLabel")}
                     </dt>
@@ -131,17 +131,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                 <a
                   href={`/${locale}/contact?product=${product.id}`}
-                  className="button-light mt-8 w-full sm:w-fit"
+                  className="button-light mt-8 w-full gap-2 text-center sm:w-fit"
                 >
-                  {t("productPage.inquire")}
-                  <span className="ml-2" aria-hidden="true">↗</span>
+                  <span className="min-w-0 leading-relaxed">{t("productPage.inquire")}</span>
+                  <span className="shrink-0" aria-hidden="true">↗</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="story" className={`mt-24 grid gap-12 border-t border-ink/10 pt-16 ${isPerfume ? "lg:grid-cols-[0.9fr_1.1fr] lg:gap-20" : "max-w-4xl"}`}>
+        <div id="story" className={`mt-16 grid gap-8 border-t border-ink/10 pt-10 sm:mt-24 sm:gap-12 sm:pt-16 ${isPerfume ? "lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20" : "max-w-4xl"}`}>
           <RevealOnScroll>
             <div className={isPerfume ? "lg:sticky lg:top-32" : ""}>
               <p className="eyebrow">{t("productPage.storyTitle")}</p>
@@ -153,7 +153,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </RevealOnScroll>
 
           <RevealOnScroll delay={0.08}>
-            <div className="story-copy story-copy--editorial space-y-6">
+            <div className="story-copy story-copy--editorial space-y-6 break-words">
               {story.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -162,12 +162,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
           {isPerfume && (
             <RevealOnScroll className="lg:col-start-2" delay={0.12}>
-              <aside className="scent-map overflow-hidden rounded-[2rem] bg-cream p-7 sm:p-10">
-                <div className="flex items-end justify-between gap-6 border-b border-ink/10 pb-7">
+              <aside className="scent-map overflow-hidden rounded-[2rem] bg-cream p-5 sm:p-8 xl:p-10">
+                <div className="flex items-end justify-between gap-4 border-b border-ink/10 pb-7 sm:gap-6">
                   <h2 className="font-serif text-3xl tracking-[-0.03em] text-ink sm:text-4xl">
                     {t("productPage.detailsTitle")}
                   </h2>
-                  <span className="mb-1 h-3 w-3 rounded-full bg-[var(--product-accent)] shadow-[0_0_0_7px_color-mix(in_srgb,var(--product-accent)_16%,transparent)]" />
+                  <span className="mb-1 h-3 w-3 shrink-0 rounded-full bg-[var(--product-accent)] shadow-[0_0_0_7px_color-mix(in_srgb,var(--product-accent)_16%,transparent)]" />
                 </div>
                 <dl>
                   {[
@@ -176,9 +176,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     ["heartNotes", "heartNotes"],
                     ["baseNotes", "baseNotes"],
                   ].map(([label, key], index) => (
-                    <div key={key} className="grid grid-cols-[2.2rem_1fr] gap-4 border-b border-ink/10 py-6 last:border-0 last:pb-0">
+                    <div key={key} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-3 border-b border-ink/10 py-6 last:border-0 last:pb-0 sm:grid-cols-[2.2rem_minmax(0,1fr)] sm:gap-4">
                       <span className="pt-0.5 text-[0.62rem] tabular-nums text-ink/32">0{index + 1}</span>
-                      <div>
+                      <div className="min-w-0 break-words">
                         <dt className="text-[0.62rem] font-semibold tracking-[0.18em] uppercase text-ink/42">
                           {t(`productPage.${label}`)}
                         </dt>
@@ -195,17 +195,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </article>
 
-      <section className="mx-auto mt-24 max-w-[90rem] px-5 sm:px-8">
+      <section className="mx-auto mt-16 max-w-[90rem] px-5 sm:mt-24 sm:px-8">
         <div className="rounded-[2.2rem] bg-cream px-5 py-12 sm:px-8 sm:py-16 lg:px-12">
           <div className="flex flex-wrap items-end justify-between gap-5">
             <h2 className="font-serif text-4xl tracking-[-0.035em] text-ink sm:text-5xl">
               {t("productPage.related")}
             </h2>
-            <Link href={`/${locale}/products`} className="text-[0.64rem] font-semibold tracking-[0.17em] uppercase text-ink/55 transition hover:text-ink">
+            <Link href={`/${locale}/products`} className="inline-flex min-h-11 items-center gap-2 text-[0.64rem] font-semibold tracking-[0.17em] uppercase text-ink/55 transition hover:text-ink">
               {t("productPage.back")} <span aria-hidden="true">→</span>
             </Link>
           </div>
-          <div className="mt-9 grid gap-4 lg:grid-cols-3">
+          <div className="mt-9 grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
             {relatedProducts.map((related) => (
               <ProductCard key={related.id} product={related} />
             ))}

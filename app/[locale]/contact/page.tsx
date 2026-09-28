@@ -41,14 +41,13 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     INQUIRY_TYPE_KEYS.includes(query.inquiry as InquiryType)
       ? (query.inquiry as InquiryType)
       : "general";
-  const initialInquiryType = requestedProduct ? "product" : requestedInquiry;
+  const inquiryType = requestedProduct ? "product" : requestedInquiry;
 
   return (
     <div className="bg-canvas pt-20 sm:pt-24">
       <Contact
-        key={`${initialInquiryType}:${requestedProduct}`}
-        initialInquiryType={initialInquiryType}
-        initialProductId={requestedProduct}
+        inquiryType={inquiryType}
+        productId={requestedProduct}
       />
     </div>
   );

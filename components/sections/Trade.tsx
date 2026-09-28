@@ -29,13 +29,13 @@ export default function Trade() {
                 </a>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-3xl border border-white/10 bg-white/[0.055] p-6 transition duration-300 hover:-translate-y-1 hover:bg-white/[0.075]">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                <div className="min-w-0 break-words rounded-3xl border border-white/10 bg-white/[0.055] p-6 transition duration-300 hover:-translate-y-1 hover:bg-white/[0.075]">
                   <span className="text-xs text-white/35">01</span>
                   <h3 className="mt-7 font-serif text-2xl">{t("consumerTitle")}</h3>
                   <p className="mt-3 text-sm leading-6 text-white/55">{t("consumerBody")}</p>
                 </div>
-                <div className="rounded-3xl border border-white/10 bg-white/[0.055] p-6 transition duration-300 hover:-translate-y-1 hover:bg-white/[0.075]">
+                <div className="min-w-0 break-words rounded-3xl border border-white/10 bg-white/[0.055] p-6 transition duration-300 hover:-translate-y-1 hover:bg-white/[0.075]">
                   <span className="text-xs text-white/35">02</span>
                   <h3 className="mt-7 font-serif text-2xl">{t("partnerTitle")}</h3>
                   <p className="mt-3 text-sm leading-6 text-white/55">{t("partnerBody")}</p>

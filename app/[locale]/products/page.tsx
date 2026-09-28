@@ -45,10 +45,10 @@ export default async function ProductsPage({ params }: ProductsPageProps) {
                 {t("intro")}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#perfumes" className="rounded-full border border-ink/12 bg-white/65 px-4 py-2.5 text-[0.62rem] font-semibold tracking-[0.17em] uppercase text-ink/60 transition hover:border-ink/30 hover:text-ink">
+                <a href="#perfumes" className="inline-flex min-h-11 max-w-full items-center rounded-full border border-ink/12 bg-white/65 px-4 py-2.5 text-[0.62rem] font-semibold leading-relaxed tracking-[0.17em] uppercase text-ink/60 transition hover:border-ink/30 hover:text-ink">
                   {t("perfumeCount")}
                 </a>
-                <a href="#home-fragrance" className="rounded-full border border-ink/12 bg-white/65 px-4 py-2.5 text-[0.62rem] font-semibold tracking-[0.17em] uppercase text-ink/60 transition hover:border-ink/30 hover:text-ink">
+                <a href="#home-fragrance" className="inline-flex min-h-11 max-w-full items-center rounded-full border border-ink/12 bg-white/65 px-4 py-2.5 text-[0.62rem] font-semibold leading-relaxed tracking-[0.17em] uppercase text-ink/60 transition hover:border-ink/30 hover:text-ink">
                   {t("diffuserCount")}
                 </a>
               </div>
@@ -62,8 +62,8 @@ export default async function ProductsPage({ params }: ProductsPageProps) {
       <section className="section-shell bg-cream">
         <div className="mx-auto max-w-7xl">
           <RevealOnScroll delay={0.1}>
-            <div className="flex flex-col gap-6 rounded-[1.7rem] bg-ink p-7 text-white sm:flex-row sm:items-center sm:justify-between sm:p-9">
-              <div>
+            <div className="flex flex-col gap-6 rounded-[1.7rem] bg-ink p-6 text-white sm:p-9 lg:flex-row lg:items-center lg:justify-between">
+              <div className="min-w-0">
                 <h3 className="font-serif text-3xl">{t("helpTitle")}</h3>
                 <p className="mt-2 max-w-2xl text-sm leading-7 text-white/58">{t("helpBody")}</p>
               </div>

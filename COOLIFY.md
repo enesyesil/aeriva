@@ -1,52 +1,102 @@
-# Coolify deployment
+# Coolify deployment with a GitHub webhook
 
-This repository publishes a production Docker image to GitHub Container Registry and asks Coolify to deploy it only after linting, type-checking, tests, and the container build succeed.
+GitHub sends a signed push webhook to Coolify. Coolify fetches `main`, builds this repository's Dockerfile, and deploys the application. This setup uses a webhook URL and a shared webhook secret; no Coolify API token or GitHub Actions deployment secrets are required.
 
-## 1. Create the Coolify application
+## 1. Connect the repository in Coolify
 
-Create a **Docker Image** application in Coolify with these values:
+Use a Git repository application with these settings:
 
-- Image: `ghcr.io/enesyesil/aeriva:latest`
-- Exposed port: `3000`
-- Health check path: `/api/health`
+- Repository: `https://github.com/enesyesil/aeriva` for a public repository.
+- For a private repository: choose **Private Repository (with deploy key)**, grant its SSH key read-only repository access, and use `git@github.com:enesyesil/aeriva.git`.
+- Branch: `main`.
+- Build Pack: **Dockerfile**.
+- Base Directory: `/` (the repository root).
+- Dockerfile Location: `/Dockerfile`.
+- Exposed port: `3000`.
+- Health check path: `/api/health`.
 
-If the GHCR package is private, authenticate the deployment server with a GitHub token that has `read:packages`. Alternatively, make the package public after the first workflow run.
+If you created a Docker Image resource for the earlier GHCR setup, create a Git repository application for this flow. Coolify now needs access to the source and builds the image itself. A private repository still needs the SSH deploy key, independently of the webhook secret.
 
-Disable Coolify's source-based auto-deploy for this application. GitHub Actions is the deployment trigger, so leaving both enabled can start duplicate deployments.
+If the old application is already live, test the new application on a temporary domain first. Once verified, remove the production domain from the old application, assign it to the new application, and stop the old resource.
 
-## 2. Configure runtime environment variables
+Configure your domain and DNS. Under **Configuration → Environment Variables**, set `NEXT_PUBLIC_SITE_URL=https://dauvena.com` (use your actual production URL), with **Runtime Variable** enabled and **Build Variable** disabled. Save and redeploy after changes. This value controls page metadata; it does not configure the domain or DNS.
 
-Add these variables to the Coolify application. Keep them in Coolify; do not commit their values:
+Contact links address `info@dauvena.com`. Make sure that mailbox is active and monitored; the website needs no SMTP credentials.
 
-```text
-SMTP_HOST
-SMTP_PORT
-SMTP_SECURE
-SMTP_USER
-SMTP_PASSWORD
-CONTACT_FROM_EMAIL
-CONTACT_TO_EMAIL
+## 2. Configure the webhook
+
+In the Coolify application:
+
+1. Enable **Auto Deploy** under **Configuration → Advanced → Deployment**.
+2. Open **Configuration → Webhooks → Manual Git Webhooks**.
+3. Save a long random **GitHub Webhook Secret** and copy the GitHub webhook URL. Use this GitHub-specific URL rather than **Deploy Webhook (auth required)**.
+
+In the repository's [webhook settings](https://github.com/enesyesil/aeriva/settings/hooks), add a webhook with that URL, the same secret, JSON content, SSL verification enabled, and only push events selected. Keep it active.
+
+If the Coolify application is already connected through a GitHub App, enable its Auto Deploy instead of adding a duplicate manual webhook.
+
+The URL and shared secret belong in repository webhook settings, not Actions secrets. The workflow no longer reads `COOLIFY_WEBHOOK` or `COOLIFY_TOKEN`; existing Actions secrets with those names can be removed if no other workflow uses them.
+
+## 3. Terminal setup (optional)
+
+Install GitHub CLI if needed and authenticate with permission to manage repository webhooks:
+
+```sh
+brew install gh
+gh auth login --hostname github.com --git-protocol https --web --scopes admin:repo_hook
 ```
 
-## 3. Create the deploy credentials
+If already signed in, use `gh auth refresh --hostname github.com --scopes admin:repo_hook` to add the webhook permission.
 
-1. On self-hosted Coolify, enable **Settings → Configuration → Advanced → API Access**. Coolify Cloud already enables API access.
-2. Open **Keys & Tokens → API Tokens** and create a token with only the `deploy` permission.
-3. Open the application and copy **Configuration → Webhooks → Deploy Webhook (auth required)**.
+After completing the Coolify settings above, run this in your terminal to create the GitHub webhook. It prompts for values and sends them through standard input without saving a credentials file. If the matching webhook already exists, edit it in GitHub instead of running this again.
 
-## 4. Add GitHub Actions secrets
+```sh
+python3 - <<'PY'
+import getpass
+import json
+import subprocess
 
-In the GitHub repository, open **Settings → Secrets and variables → Actions** and add:
+webhook_url = getpass.getpass("Paste the Coolify Manual Git Webhook URL for GitHub: ").strip()
+webhook_secret = getpass.getpass("Paste the same webhook secret saved in Coolify: ")
+if not webhook_url.startswith("https://") or not webhook_secret:
+    raise SystemExit("An HTTPS webhook URL and a nonempty secret are required.")
+payload = {
+    "name": "web",
+    "active": True,
+    "events": ["push"],
+    "config": {
+        "url": webhook_url,
+        "content_type": "json",
+        "secret": webhook_secret,
+        "insecure_ssl": "0",
+    },
+}
+subprocess.run(
+    ["gh", "api", "--method", "POST", "repos/enesyesil/aeriva/hooks",
+     "--input", "-", "--jq", '"Created webhook ID: " + (.id | tostring)'],
+    input=json.dumps(payload), text=True, check=True,
+)
+PY
+```
 
-- `COOLIFY_WEBHOOK`: the authenticated deploy webhook URL copied from Coolify.
-- `COOLIFY_TOKEN`: the deploy-only API token.
+This uses your GitHub CLI login to configure GitHub. It does not require a Coolify API token.
 
-The workflow uses GitHub's built-in `GITHUB_TOKEN` to publish `ghcr.io/enesyesil/aeriva`. No registry password is stored in the repository.
+## 4. Checks and deployment
 
-## Deployment flow
+`.github/workflows/coolify.yml` runs linting, type-checking, tests, and a Docker build on pull requests and pushes to `main`. It does not publish an image or call Coolify. The duplicate `ci.yml` publishing workflow has been removed.
 
-- Pull requests to `main`: lint, type-check, test, and build the Docker image without publishing or deploying it.
-- Pushes to `main`: run all checks, publish `latest` and commit-SHA image tags, then call the Coolify webhook.
-- Manual runs on `main`: the same production flow can be started from the GitHub Actions page. Manual runs on other branches validate and build without publishing or deploying.
+The push webhook starts deployment independently of GitHub Actions. To require passing checks before code reaches production, protect `main`, require pull requests, and require **Validate application** and **Validate Docker image** to pass before merging. Direct pushes or bypassing those rules can deploy before CI finishes. GitHub's former `production` environment approval does not gate this webhook flow.
 
-Coolify should pull `ghcr.io/enesyesil/aeriva:latest` when the webhook is called. A successful webhook response means the deployment was queued; verify final health in Coolify's Deployments view.
+After committing reviewed changes on `main`, a push triggers deployment:
+
+```sh
+git push origin main
+```
+
+If `main` requires pull requests, push your feature branch and merge its PR once checks pass; the resulting push to `main` triggers deployment.
+
+Verify the webhook delivery in GitHub's repository settings, then check the application deployment and health in Coolify. The application must be configured for branch `main`. A manual Actions run validates only; use Coolify's Deploy button for a manual deployment.
+
+Before the first webhook-driven release, let any older publishing/deployment runs finish or cancel them in GitHub Actions.
+
+References: [Coolify manual Git webhooks](https://coolify.io/docs/applications/deployments/manual-webhooks), [Dockerfile builds](https://coolify.io/docs/applications/builds/dockerfile), [private repository deploy keys](https://coolify.io/docs/applications/sources/deploy-keys), [GitHub webhook creation API](https://docs.github.com/en/rest/repos/webhooks#create-a-repository-webhook).

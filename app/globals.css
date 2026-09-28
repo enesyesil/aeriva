@@ -23,11 +23,18 @@ html {
 }
 
 body {
-  min-width: 320px;
+  min-width: 0;
   overflow-x: hidden;
   background: var(--color-canvas);
   color: var(--color-ink);
   font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3 {
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 button,
@@ -52,7 +59,7 @@ select {
 }
 
 .section-shell {
-  padding: 5.25rem 1.25rem;
+  padding: clamp(3.5rem, 7vw, 5.25rem) 1.25rem;
 }
 
 .section-title {
@@ -72,12 +79,15 @@ select {
   letter-spacing: 0.24em;
   line-height: 1.4;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 .button-primary,
 .button-secondary,
 .button-light {
   display: inline-flex;
+  min-width: 0;
+  max-width: 100%;
   min-height: 3.1rem;
   align-items: center;
   justify-content: center;
@@ -86,7 +96,9 @@ select {
   font-size: 0.67rem;
   font-weight: 600;
   letter-spacing: 0.16em;
-  line-height: 1;
+  line-height: 1.45;
+  text-align: center;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
   transition: transform 180ms ease, background-color 180ms ease, color 180ms ease,
     border-color 180ms ease;

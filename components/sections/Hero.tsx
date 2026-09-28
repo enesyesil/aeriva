@@ -75,7 +75,7 @@ export default function Hero() {
         </motion.p>
         <motion.h1
           {...enter(0.16)}
-          className="mt-5 max-w-[12ch] font-serif text-[clamp(3.5rem,8vw,7.8rem)] leading-[0.88] tracking-[-0.055em] text-white"
+          className="mt-5 max-w-[12ch] font-serif text-[clamp(3rem,8vw,7.8rem)] leading-[0.94] tracking-[-0.055em] text-white"
         >
           {t("titleLead")}
           <span className="mt-2 block italic text-peach">{t("titleAccent")}</span>
@@ -102,11 +102,11 @@ export default function Hero() {
         </motion.div>
         <motion.div
           {...enter(0.5)}
-          className="mt-8 flex items-center gap-4 text-[0.58rem] font-semibold tracking-[0.24em] uppercase text-white/62"
+          className="mt-8 flex max-w-full items-center gap-2 text-[0.58rem] font-semibold tracking-[0.18em] uppercase text-white/62 sm:gap-4 sm:tracking-[0.24em]"
         >
-          <span className="h-px w-10 bg-white/35" aria-hidden="true" />
+          <span className="h-px w-5 shrink-0 bg-white/35 sm:w-10" aria-hidden="true" />
           Estila Exclusive · Mavigöl
-          <span className="h-px w-10 bg-white/35" aria-hidden="true" />
+          <span className="h-px w-5 shrink-0 bg-white/35 sm:w-10" aria-hidden="true" />
         </motion.div>
       </div>
 

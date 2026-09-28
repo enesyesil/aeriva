@@ -114,23 +114,24 @@
     "title": "Présentez la collection à vos clients.",
     "body": "Les détaillants peuvent contacter Dauvena Cosmetics pour échanger au sujet du catalogue actuel de parfums et de senteurs d'intérieur. Présentez-nous votre activité et les produits qui vous intéressent, et nous vous répondrons avec les informations adaptées.",
     "consumerTitle": "Vous cherchez un produit ?",
-    "consumerBody": "Choisissez une fragrance et envoyez une demande liée au produit depuis sa page.",
+    "consumerBody": "Écrivez-nous par e-mail au sujet de la fragrance qui vous intéresse en précisant son nom ou son code produit.",
     "partnerTitle": "Vous achetez pour une entreprise ?",
-    "partnerBody": "Sélectionnez la demande professionnelle afin que nous puissions comprendre votre assortiment et vos besoins.",
+    "partnerBody": "Présentez-nous par e-mail votre activité, les produits qui vous intéressent et vos besoins d'achat en gros.",
     "cta": "Faire une demande professionnelle"
   },
   "contact": {
     "eyebrow": "Contact",
     "title": "Posez une question sur une fragrance",
-    "subtitle": "Envoyez-nous votre question et indiquez un produit si vous en avez déjà un en tête.",
-    "requiredHint": "Les champs marqués * sont obligatoires.",
+    "subtitle": "Envoyez-nous votre question par e-mail et mentionnez un produit si vous en avez un en tête.",
     "guideEyebrow": "Choisir votre demande",
-    "guideTitle": "Commencez par le type de demande qui vous correspond.",
-    "formEyebrow": "Votre message",
-    "formTitle": "Partagez les détails.",
-    "name": "Nom",
-    "email": "E-mail",
-    "inquiryType": "Type de demande",
+    "guideTitle": "Choisissez le sujet de votre e-mail.",
+    "emailLabel": "Écrivez-nous",
+    "emailIntro": "Pour toute question sur un produit, demande générale ou demande professionnelle, envoyez-nous un e-mail.",
+    "emailAction": "Rédiger un e-mail",
+    "emailHint": "Ouvre votre application de messagerie. Vous pouvez aussi copier l'adresse ci-dessus.",
+    "productContext": "Votre demande : {product}",
+    "subject": "Dauvena Cosmetics — {inquiry}",
+    "productSubject": "Dauvena Cosmetics — {product}",
     "inquiryTypes": {
       "general": "Demande générale",
       "product": "Demande produit",
@@ -140,20 +141,11 @@
       "general": "Questions sur Dauvena Cosmetics ou le catalogue actuel.",
       "product": "Posez une question sur un parfum ou une senteur d'intérieur précise.",
       "wholesale": "Présentez votre activité et les produits qui vous intéressent."
-    },
-    "product": "Produit",
-    "noProduct": "Aucun produit précis",
-    "message": "Comment pouvons-nous vous aider ?",
-    "send": "Envoyer la demande",
-    "sendAnother": "Envoyer une autre demande",
-    "sending": "Envoi en cours...",
-    "success": "Votre demande a bien été envoyée. Nous vous répondrons prochainement.",
-    "error": "Nous n'avons pas pu envoyer votre demande. Vérifiez vos informations et réessayez.",
-    "privacy": "Vos coordonnées servent uniquement à répondre à cette demande."
+    }
   },
   "contactPage": {
     "metaTitle": "Contact | Dauvena Cosmetics",
-    "metaDescription": "Contactez Dauvena Cosmetics pour une demande générale, produit ou professionnelle."
+    "metaDescription": "Contactez Dauvena Cosmetics par e-mail à info@dauvena.com pour une demande générale, produit ou professionnelle."
   },
   "footer": {
     "description": "Dauvena Cosmetics réunit parfums personnels et senteurs d'intérieur dans un catalogue ciblé et expressif.",

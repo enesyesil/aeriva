@@ -12,13 +12,13 @@ export default function ProductCard({ product }: { product: Product }) {
   const productName = t(`products.items.${product.id}.name`);
 
   return (
-    <article className="product-card group h-full">
+    <article className="product-card group h-full min-w-0">
       <Link
         href={`/${locale}/products/${product.slug}`}
         aria-label={`${productName} — ${t(
           isPerfume ? "catalogue.viewProduct" : "catalogue.viewDiffuser",
         )}`}
-        className="grid h-full min-h-[17.5rem] grid-cols-[minmax(8.5rem,38%)_1fr] overflow-hidden rounded-[1.5rem] border border-ink/10 bg-white shadow-[0_18px_55px_rgba(28,34,36,0.06)] transition duration-500 ease-out hover:-translate-y-1 hover:border-ink/20 hover:shadow-[0_24px_65px_rgba(28,34,36,0.11)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-4 sm:grid-cols-[minmax(11rem,42%)_1fr]"
+        className="grid h-full min-h-[17.5rem] grid-cols-[36%_minmax(0,1fr)] overflow-hidden rounded-[1.5rem] border border-ink/10 bg-white shadow-[0_18px_55px_rgba(28,34,36,0.06)] transition duration-500 ease-out hover:-translate-y-1 hover:border-ink/20 hover:shadow-[0_24px_65px_rgba(28,34,36,0.11)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-4 sm:grid-cols-[42%_minmax(0,1fr)]"
       >
         <div className="relative min-h-full overflow-hidden" style={{ backgroundColor: `${product.accent}18` }}>
           <Image
@@ -33,15 +33,15 @@ export default function ProductCard({ product }: { product: Product }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-white/5" />
         </div>
 
-        <div className="flex min-w-0 flex-col p-5 sm:p-6">
+        <div className="flex min-w-0 flex-col p-4 sm:p-5 xl:p-6">
           <div className="flex flex-wrap items-center gap-2 text-[0.58rem] font-semibold tracking-[0.18em] uppercase text-ink/48">
             <span>{isPerfume ? "Estila Exclusive" : "Mavigöl"}</span>
           </div>
 
-          <h3 className="mt-4 font-serif text-[1.65rem] leading-[1.02] tracking-[-0.03em] text-ink sm:text-[1.9rem]">
+          <h3 className="mt-4 break-words font-serif text-[1.65rem] leading-[1.02] tracking-[-0.03em] text-ink sm:text-[1.9rem]">
             {productName}
           </h3>
-          <p className="mt-3 line-clamp-4 text-[0.82rem] leading-6 text-ink/60 sm:text-sm">
+          <p className="mt-3 line-clamp-4 break-words text-[0.82rem] leading-6 text-ink/60 sm:text-sm">
             {t(`products.items.${product.id}.shortDescription`)}
           </p>
 
@@ -56,10 +56,12 @@ export default function ProductCard({ product }: { product: Product }) {
           </div>
 
           <span className="mt-4 inline-flex items-center gap-2 border-t border-ink/10 pt-4 text-[0.64rem] font-semibold tracking-[0.17em] uppercase text-ink">
-            {t(isPerfume ? "catalogue.viewProduct" : "catalogue.viewDiffuser")}
+            <span className="min-w-0 break-words">
+              {t(isPerfume ? "catalogue.viewProduct" : "catalogue.viewDiffuser")}
+            </span>
             <span
               aria-hidden="true"
-              className="transition-transform duration-300 group-hover:translate-x-1"
+              className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
             >
               →
             </span>

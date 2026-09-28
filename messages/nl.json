@@ -114,23 +114,24 @@
     "title": "Breng de collectie naar jouw klanten.",
     "body": "Retailers kunnen contact opnemen met Dauvena Cosmetics over de actuele parfum- en huisgeurcatalogus. Vertel ons over je onderneming en de producten waarin je geïnteresseerd bent; wij antwoorden met de relevante informatie.",
     "consumerTitle": "Op zoek naar een product?",
-    "consumerBody": "Kies een geur en stuur vanaf de productpagina een gerichte aanvraag.",
+    "consumerBody": "Mail ons over de geur die je interesseert en vermeld de naam of productcode.",
     "partnerTitle": "Koop je in voor een bedrijf?",
-    "partnerBody": "Kies de groothandelsaanvraag zodat we je assortiment en behoeften goed begrijpen.",
+    "partnerBody": "Mail ons over je bedrijf, de producten die je interesseren en je wensen voor groothandelsinkoop.",
     "cta": "Start een groothandelsaanvraag"
   },
   "contact": {
     "eyebrow": "Contact",
     "title": "Vraag naar een geur",
-    "subtitle": "Stuur ons je vraag en voeg een product toe als je er al een in gedachten hebt.",
-    "requiredHint": "Velden met * zijn verplicht.",
+    "subtitle": "Stuur ons je vraag per e-mail en vermeld een product als je er al een in gedachten hebt.",
     "guideEyebrow": "Kies je aanvraag",
-    "guideTitle": "Begin met het type aanvraag dat bij je vraag past.",
-    "formEyebrow": "Je bericht",
-    "formTitle": "Deel de details.",
-    "name": "Naam",
-    "email": "E-mail",
-    "inquiryType": "Type aanvraag",
+    "guideTitle": "Kies een onderwerp voor je e-mail.",
+    "emailLabel": "Mail ons",
+    "emailIntro": "Stuur ons een e-mail voor productvragen, algemene vragen of groothandelsaanvragen.",
+    "emailAction": "Schrijf een e-mail",
+    "emailHint": "Opent je e-mailapp. Je kunt ook het bovenstaande adres kopiëren.",
+    "productContext": "Je aanvraag: {product}",
+    "subject": "Dauvena Cosmetics — {inquiry}",
+    "productSubject": "Dauvena Cosmetics — {product}",
     "inquiryTypes": {
       "general": "Algemene aanvraag",
       "product": "Productaanvraag",
@@ -140,20 +141,11 @@
       "general": "Vragen over Dauvena Cosmetics of de huidige catalogus.",
       "product": "Stel een vraag over een specifieke parfum of huisgeur.",
       "wholesale": "Vertel over je bedrijf en de producten die je interesseren."
-    },
-    "product": "Product",
-    "noProduct": "Geen specifiek product",
-    "message": "Waarmee kunnen we helpen?",
-    "send": "Aanvraag versturen",
-    "sendAnother": "Nog een aanvraag versturen",
-    "sending": "Bezig met versturen...",
-    "success": "Je aanvraag is verstuurd. We nemen snel contact met je op.",
-    "error": "We konden je aanvraag niet versturen. Controleer je gegevens en probeer het opnieuw.",
-    "privacy": "Je gegevens worden alleen gebruikt om deze aanvraag te beantwoorden."
+    }
   },
   "contactPage": {
     "metaTitle": "Contact | Dauvena Cosmetics",
-    "metaDescription": "Neem contact op met Dauvena Cosmetics voor een algemene, product- of groothandelsaanvraag."
+    "metaDescription": "Mail Dauvena Cosmetics op info@dauvena.com voor een algemene vraag, productvraag of groothandelsaanvraag."
   },
   "footer": {
     "description": "Dauvena Cosmetics brengt persoonlijk parfum en huisgeur samen in een gerichte, expressieve catalogus.",

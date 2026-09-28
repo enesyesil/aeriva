@@ -114,23 +114,24 @@
     "title": "Bring the collection to your customers.",
     "body": "Retailers can contact Dauvena Cosmetics to discuss the current perfume and home-fragrance catalogue. Tell us about your business and the products you are interested in, and we will reply with the relevant information.",
     "consumerTitle": "Looking for a product?",
-    "consumerBody": "Choose any fragrance and send a product-specific inquiry from its page.",
+    "consumerBody": "Email us about any fragrance that interests you, including its name or product code.",
     "partnerTitle": "Buying for a business?",
-    "partnerBody": "Use the wholesale inquiry option so we can understand your range and requirements.",
+    "partnerBody": "Email us about your business, the products that interest you and your wholesale requirements.",
     "cta": "Start a wholesale inquiry"
   },
   "contact": {
     "eyebrow": "Contact",
     "title": "Ask about a fragrance",
-    "subtitle": "Send us your question and include a product whenever you have one in mind.",
-    "requiredHint": "Fields marked * are required.",
+    "subtitle": "Email us your question and mention a product if you have one in mind.",
     "guideEyebrow": "Choose your inquiry",
-    "guideTitle": "Start with the route that fits your question.",
-    "formEyebrow": "Your message",
-    "formTitle": "Share the details.",
-    "name": "Name",
-    "email": "Email",
-    "inquiryType": "Inquiry type",
+    "guideTitle": "Choose a subject for your email.",
+    "emailLabel": "Email us",
+    "emailIntro": "For product questions, general inquiries or wholesale requests, send us an email.",
+    "emailAction": "Write an email",
+    "emailHint": "Opens your email app. You can also copy the address above.",
+    "productContext": "Your inquiry: {product}",
+    "subject": "Dauvena Cosmetics — {inquiry}",
+    "productSubject": "Dauvena Cosmetics — {product}",
     "inquiryTypes": {
       "general": "General inquiry",
       "product": "Product inquiry",
@@ -140,20 +141,11 @@
       "general": "Questions about Dauvena Cosmetics or the current catalogue.",
       "product": "Ask about a specific perfume or home fragrance.",
       "wholesale": "Introduce your business and the products that interest you."
-    },
-    "product": "Product",
-    "noProduct": "No specific product",
-    "message": "How can we help?",
-    "send": "Send inquiry",
-    "sendAnother": "Send another inquiry",
-    "sending": "Sending...",
-    "success": "Your inquiry has been sent. We will be in touch soon.",
-    "error": "We could not send your inquiry. Please check your details and try again.",
-    "privacy": "Your details are used only to reply to this inquiry."
+    }
   },
   "contactPage": {
     "metaTitle": "Contact | Dauvena Cosmetics",
-    "metaDescription": "Contact Dauvena Cosmetics with a general, product or wholesale inquiry."
+    "metaDescription": "Email Dauvena Cosmetics at info@dauvena.com with a general, product or wholesale inquiry."
   },
   "footer": {
     "description": "Dauvena Cosmetics brings together personal perfume and home fragrance in a focused, expressive catalogue.",

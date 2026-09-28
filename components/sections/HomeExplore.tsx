@@ -53,7 +53,7 @@ export default function HomeExplore() {
                     sizes="(max-width: 767px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/62 via-black/5 to-transparent" />
-                  <p className="absolute bottom-6 left-6 text-[0.62rem] font-semibold tracking-[0.22em] uppercase text-white/75 sm:bottom-8 sm:left-8">
+                  <p className="absolute bottom-6 left-6 right-6 text-[0.62rem] font-semibold leading-relaxed tracking-[0.22em] uppercase text-white/75 sm:bottom-8 sm:left-8 sm:right-8">
                     {index === 0 ? "Estila Exclusive · Mavigöl" : t("productCount")}
                   </p>
                 </div>
