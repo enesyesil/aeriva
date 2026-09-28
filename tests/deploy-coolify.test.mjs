@@ -135,6 +135,30 @@ describe("Coolify deployment", () => {
   });
 
   it.each([
+    ["API is disabled.", "API access is disabled"],
+    ["You are not allowed to access the API.", "IP allowlist rejected"],
+    ["Missing required permissions: deploy", "lacks deploy permission"],
+    ["This API token has permissions (deploy) that exceed your current role as a team member.", "token owner no longer has the team role"],
+    [`Unexpected error: ${config.token} ${config.webhookUrl}`, "Check Coolify API access"],
+  ])("classifies forbidden responses without exposing their contents: %s", async (message, expected) => {
+    const fetchImpl = vi.fn().mockResolvedValue(Response.json({ message }, { status: 403 }));
+    const dependencies = harness(fetchImpl);
+    const error = await deployCoolify(config, dependencies).catch((failure) => failure);
+    expect(error).toBeInstanceOf(Error);
+    expect(error.message).toContain("HTTP 403");
+    expect(error.message).toContain(expected);
+    expect(error.message).not.toContain(config.token);
+    expect(error.message).not.toContain(config.webhookUrl);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it("handles non-JSON forbidden responses without exposing their contents", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(new Response(config.token, { status: 403 }));
+    await expect(deployCoolify(config, harness(fetchImpl))).rejects.toThrow("Check Coolify API access");
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([
     {},
     { deployments: [] },
     { deployments: [{ resource_uuid: "wrong-resource", deployment_uuid: "deployment-456" }] },

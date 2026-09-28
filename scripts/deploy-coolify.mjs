@@ -4,6 +4,32 @@ import { pathToFileURL } from "node:url";
 
 const resourcePattern = /^[a-zA-Z0-9_-]+$/;
 
+async function forbiddenReason(response) {
+  let message;
+  try {
+    message = (await response.json())?.message;
+  } catch {
+    // Proxy errors may return HTML. Never echo server responses or credentials.
+  }
+  if (message === "API is disabled.") {
+    return "Coolify API access is disabled. Enable API Access in Settings > Configuration > Advanced.";
+  }
+  if (message === "You are not allowed to access the API.") {
+    return "Coolify's API IP allowlist rejected the GitHub Actions runner. Review Allowed IPs for API Access.";
+  }
+  if (message === "Missing required permissions: deploy") {
+    return "The Coolify API token lacks deploy permission. Replace COOLIFY_TOKEN with a deploy-enabled token.";
+  }
+  if (
+    typeof message === "string" &&
+    message.startsWith("This API token has permissions (") &&
+    message.includes("exceed your current role as a team member")
+  ) {
+    return "The Coolify token owner no longer has the team role required to deploy.";
+  }
+  return "Check Coolify API access, its IP allowlist, and the token's deploy permission and team role.";
+}
+
 function parseHttpsUrl(value, label) {
   let url;
   try {
@@ -77,7 +103,8 @@ export async function deployCoolify(
     throw new Error("The Coolify deployment request failed or timed out; it was not retried.");
   }
   if (!response.ok) {
-    throw new Error(`Coolify rejected the deployment request (HTTP ${response.status}).`);
+    const reason = response.status === 403 ? ` ${await forbiddenReason(response)}` : "";
+    throw new Error(`Coolify rejected the deployment request (HTTP ${response.status}).${reason}`);
   }
 
   let acknowledgement;
